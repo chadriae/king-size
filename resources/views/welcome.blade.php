@@ -21,6 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
+<<<<<<< HEAD
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -130,4 +131,8 @@
             </div>
         </div>
     </body>
+=======
+        <h2>hello world</h2>
+   </body>
+>>>>>>> 2b372ac1f934f14317dcc7919cdd1d39dd977faa
 </html>

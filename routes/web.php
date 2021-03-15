@@ -16,7 +16,11 @@ use App\Http\Controllers\RepairerController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/index');
+});
+
+Route::get('/about', function () {
+    return view('pages/about');
 });
 
 // Route::get('/repairers', [RepairerController::class, 'getAllRepairers, getDetailedInfo']);
@@ -28,5 +32,6 @@ Route::post('/dashboard', [RepairerController::class, 'updateInfo']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__ . '/auth.php';
