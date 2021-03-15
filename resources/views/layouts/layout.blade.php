@@ -21,6 +21,9 @@
         </style>
     </head>
     <body class="antialiased">
-        <h2>hello world</h2>
-   </body>
+
+        @include('includes.header')
+        @yield('content')
+        @include('includes.footer')
+    </body>
 </html>
