@@ -14,4 +14,14 @@ class Profile extends Model
         'location',
         'specialties',
     ];
+
+    public function setSpecialtyAttribute($value)
+    {
+        $this->attributes['specialties'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['specialties'] = json_decode($value);
+    }
 }

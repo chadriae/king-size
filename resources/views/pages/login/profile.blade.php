@@ -15,10 +15,10 @@
                     Email: {{ Auth::user()->email }}
                    </div>
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Location: {{ $info->location }}            
+                    Location: {{ !empty($info->location) ? $info->location : "Please give us your location." }}            
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Specialties: {{ $info->specialties }}
+                    Specialties: {{ !empty($info->specialties) ? $info->specialties : "Provide some of your specialties." }}
                 </div>
             </div>
 
@@ -37,8 +37,21 @@
                     </div>
         
                     <div class="p-6 bg-white border-b border-gray-200">
-                        <x-label for="specialties" :value="__('Specialties')" />
-                        <x-input id="specialties" class="block mt-1 w-full" type="text" name="specialties" :value="old('specialties')" required />
+
+                        <label for="specialties" :value="__('Specialties')">
+                            <input type="checkbox" name="specialties[]" value="Laravel">
+                            <span>Laravel</span>
+                            <input type="checkbox" name="specialties[]" value="React">
+                            <span>React</span>
+                            <input type="checkbox" name="specialties[]" value="MySQL">
+                            <span>MySQL</span>
+                            <input type="checkbox" name="specialties[]" value="Kakken">
+                            <span>Kakken</span>
+                        </label>
+
+                        {{-- <x-label for="specialties" :value="__('Specialties')" />
+                        <x-input id="specialties" class="block mt-1 w-full" type="text" name="specialties" :value="old('specialties')" required autofocus />
+ --}}
                     </div>
 
                         @if(Session::has('success'))

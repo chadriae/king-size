@@ -17,18 +17,22 @@ class ProfileController extends Controller
     {
         $info = DB::table('profiles')->where('user_id', Auth::user()->id)->latest('updated_at')->first();
 
-        return view('pages/login/profile', ['info' => $info]);
+        return view('pages/login/profile', compact('info'));
     }
 
     public function update(UpdateProfileRequest $request)
     {
-        $user_id = Auth::user()->id;
+        $data = $request->input();
+        $data['user_id'] = Auth::id();
+        $data['specialties'] = implode(", ", $data['specialties']);
+        Profile::create($data);
 
-        Profile::create([
-            'user_id' => $user_id,
-            'location' => $request->location,
-            'specialties' => $request->specialties,
-        ]);
+        // Profile::create([
+        //     'user_id' => $user_id,
+        //     'location' => $request->location,
+        //     'specialties' => $request->input('category')
+        // ]);
+
         return back()->with('success', "Info updated successfully.");
     }
 }
