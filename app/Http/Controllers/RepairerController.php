@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
-
-// use App\Http\Controllers\Auth;
 
 use App\Models\Repairer;
 use App\Models\User;
@@ -76,17 +72,6 @@ class RepairerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateInfo(Request $request)
-    {
-        $user_id = Auth::user()->id;
-
-        Repairer::create([
-            'user_id' => $user_id,
-            'location' => $request->location,
-            'specialties' => $request->specialties,
-        ]);
-        return back()->with('success', "Info updated successfully.");
-    }
 
     /**
      * Remove the specified resource from storage.
