@@ -23,15 +23,12 @@ Route::get('/about', function () {
     return view('pages/about');
 });
 
-// Route::get('/repairers', [RepairerController::class, 'getAllRepairers, getDetailedInfo']);
 Route::get('/repairers', [RepairerController::class, 'index']);
-
 
 Route::post('/dashboard', [RepairerController::class, 'updateInfo']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages/login/dashboard');
 })->middleware(['auth'])->name('dashboard');
-
 
 require __DIR__ . '/auth.php';

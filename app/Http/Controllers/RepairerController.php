@@ -23,7 +23,7 @@ class RepairerController extends Controller
         $repairers = User::all();
         $info = Repairer::all();
 
-        return view('repairers', compact('repairers', 'info'));
+        return view('pages/repairers', compact('repairers', 'info'));
     }
 
     /**

@@ -6,6 +6,7 @@
             @else
                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
                 <a href="{{ url('/about') }}" class="text-sm text-gray-700 underline">about</a>
+                <a href="{{ url('/repairers') }}" class="text-sm text-gray-700 underline">Repairers</a>
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                 @endif
