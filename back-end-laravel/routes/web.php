@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SpecialtieController;
 use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +18,17 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('pages/index');
-});
-
-Route::get('/about', function () {
-    return view('pages/about');
+    return view('welcome');
 });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
-        return view('pages/login/dashboard');
+        return view('dashboard');
     })->name('dashboard');
 
-    Route::view('profile', 'pages/login/profile')->name('profile');
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-});
+    Route::get('/profile', [ProfileController::class, 'getSpecialties'])->name('profile');
 
+    Route::resource('specialties', SpecialtieController::class);
+});
 
 require __DIR__ . '/auth.php';

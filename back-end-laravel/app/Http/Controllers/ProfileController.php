@@ -2,37 +2,94 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateProfileRequest;
-
 use App\Models\Profile;
+use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-
 class ProfileController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $info = DB::table('profiles')->where('user_id', Auth::user()->id)->latest('updated_at')->first();
-
-        return view('pages/login/profile', compact('info'));
+        //
     }
 
-    public function update(UpdateProfileRequest $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $data = $request->input();
-        $data['user_id'] = Auth::id();
-        $data['specialties'] = implode(", ", $data['specialties']);
-        Profile::create($data);
+        //
+    }
 
-        // Profile::create([
-        //     'user_id' => $user_id,
-        //     'location' => $request->location,
-        //     'specialties' => $request->input('category')
-        // ]);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-        return back()->with('success', "Info updated successfully.");
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Profile $profile)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Profile $profile)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Profile $profile)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Profile $profile)
+    {
+        //
+    }
+
+    public function getSpecialties()
+    {
+        $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+
+        return view('profile', compact('specialties'));
     }
 }

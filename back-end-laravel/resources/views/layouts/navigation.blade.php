@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                        {{ __('Profile') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('specialties.index')" :active="request()->routeIs('specialties.index')">
+                        {{ __('Specialties') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -44,11 +50,6 @@
                                 {{ __('Log out') }}
                             </x-dropdown-link>
                         </form>
-
-                            <x-dropdown-link :href="route('profile')">
-                            {{ __('My Profile') }}
-                            </x-dropdown-link>
-
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -99,10 +100,6 @@
                         {{ __('Log out') }}
                     </x-responsive-nav-link>
                 </form>
-                <x-responsive-nav-link :href="route('profile')">
-                        {{ __('My profile') }}
-                </x-responsive-nav-link>
-
             </div>
         </div>
     </div>
