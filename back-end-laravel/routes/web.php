@@ -29,6 +29,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', [ProfileController::class, 'getSpecialties'])->name('profile');
 
     Route::resource('specialties', SpecialtieController::class);
+
+    Route::resource('address', AddressController::class);
+
+    // Route::get('/specialties', [SpecialtieController::class, 'getSpecialties'])->name('specialties.index');
 });
 
 require __DIR__ . '/auth.php';

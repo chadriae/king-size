@@ -15,12 +15,21 @@ class SpecialtieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+    // public function index()
+    // {
+    //     $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
 
-        return view('specialties.index', compact('specialties'));
+    //     return view('specialties.index', compact('specialties'));
+    // }
+
+    public function getSpecialties()
+    {
+        $categories = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+        $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->first();
+
+        return view('specialties.index', ['specialties' => $specialties, 'categories' => $categories]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,7 +51,9 @@ class SpecialtieController extends Controller
     {
         $data = $request->input();
         $data['userId'] = Auth::id();
+        $data['categories'] = implode(", ", $data['categories']);
         $data['specialties'] = implode(", ", $data['specialties']);
+
         Specialtie::create($data);
 
         return back()->with('success', "Info updated successfully.");

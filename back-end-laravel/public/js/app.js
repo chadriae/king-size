@@ -3800,7 +3800,16 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // function changeCheckboxColorClicked () {
+//     // document.getElementById('categories').style.color = 'white';
+//     // document.getElementById('categories').style.backgroundcolor = 'lightgreen';
+// }
+
+
+document.querySelector('.categories').addEventListener('click', function () {
+  console.log('test'); // document.querySelector('.categories').style.color = 'white';
+  // document.querySelector('.categories').style.backgroundColor = 'lightgreen';
+});
 
 /***/ }),
 

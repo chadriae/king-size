@@ -31432,6 +31432,44 @@ select {
           animation: bounce 1s infinite;
 }
 
+.categories {
+  background-color: white;
+  color: green;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+.categories:hover {
+  color:rgb(160, 238, 167);
+}
+
+.specialties {
+  background-color: white;
+  color: rgba(0, 0, 255, 0.762);
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+.specialties:hover {
+  color:rgb(160, 169, 238);
+}
+
+input[type="checkbox"]{
+  /* display: none; */
+}
+
+table {
+  width: 100%;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -184466,4 +184504,3 @@ select {
             animation: bounce 1s infinite;
   }
 }
-

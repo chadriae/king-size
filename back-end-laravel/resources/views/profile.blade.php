@@ -11,6 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Hello, {{ Auth::user()->name }}.
                     <br><br>
+                    <span class="font-bold">Current categories: </span>
+                    {{  $categories->categories }}
+                    <br><br>
                     <span class="font-bold">Current specialties: </span>
                     {{  $specialties->specialties }}
                 </div>

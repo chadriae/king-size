@@ -11,6 +11,7 @@ class Specialtie extends Model
 
     protected $fillable = [
         'userId',
+        'categories',
         'specialties'
     ];
 
