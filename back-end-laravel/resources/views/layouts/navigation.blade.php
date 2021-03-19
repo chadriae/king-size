@@ -22,7 +22,7 @@
                         {{ __('Specialties') }}
                     </x-nav-link>
                     <x-nav-link :href="route('address.index')" :active="request()->routeIs('address.index')">
-                        {{ __('Specialties') }}
+                        {{ __('Address') }}
                     </x-nav-link>
                 </div>
             </div>

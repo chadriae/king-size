@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SpecialtieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AddressController;
+
 
 
 /*
@@ -32,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('address', AddressController::class);
 
-    // Route::get('/specialties', [SpecialtieController::class, 'getSpecialties'])->name('specialties.index');
+    Route::get('/specialties', [SpecialtieController::class, 'getSpecialties'])->name('specialties.index');
 });
 
 require __DIR__ . '/auth.php';
