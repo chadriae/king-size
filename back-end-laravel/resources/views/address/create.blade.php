@@ -161,7 +161,7 @@
               </form>
               
                   <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRoQNzIRNiXHm9anKnFnd7kzirxBLebkU&callback=initAutocomplete&libraries=places&v=weekly"
+                    src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initAutocomplete&libraries=places&v=weekly"
                     async
                   ></script>
 
