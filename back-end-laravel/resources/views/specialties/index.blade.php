@@ -12,9 +12,9 @@
                     <table class="table-fixed">
                         <tr class="text-left">
                             <th class="w-1/6">Categories</th>
-                            <td class="w-4/6">{{ $categories->categories }}</td>
+                            <td class="w-4/6">{{  empty($categories) ? "" : $categories->categories  }}</td>
                             <td class="w-1/6 text-right">
-                                <form action="{{ route('specialties.destroy',$specialties->id) }}" method="POST">
+                                <form action="{{ route('categories.destroy',$categories->id) }}" method="POST">
                                     <a class="btn btn-primary" href="{{ route('specialties.edit', $specialties->id) }}"><button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-600 hover:shadow-lg">Edit</button></a>
                                     @csrf
                                     {{-- @method('DELETE')
@@ -24,7 +24,7 @@
                         </tr>
                         <tr class="text-left">
                             <th class="w-1/6">Specialties</th>
-                            <td class="w-6/6">{{ $specialties->specialties }}</td>
+                            <td class="w-6/6">{{  empty($specialties) ? "" : $specialties->specialties  }}</td>
                             <td class="w-1/6 text-right">
                                 <form action="{{ route('specialties.destroy',$specialties->id) }}" method="POST">
                                     <a class="btn btn-primary" href="{{ route('specialties.edit', $specialties->id) }}"><button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-600 hover:shadow-lg">Edit</button></a>

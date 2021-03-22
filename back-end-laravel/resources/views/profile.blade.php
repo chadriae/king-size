@@ -15,21 +15,24 @@
         </div>
     </div>
 
+    @if(!empty($categories))
     <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <span class="font-bold">Current categories: </span>
-                    {{  $categories->categories }}
+                    {{  empty($categories) ? "" : $categories->categories  }}
                     <br><br>
                     <span class="font-bold">Current specialties: </span>
-                    {{  $specialties->specialties }}
+                    {{  empty($specialties) ? "" : $specialties->specialties }}
                 </div>
             </div>
         </div>
     </div>
+    @endif
 
-    <div class="pt-12">
+    @if(!empty($address))
+   <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class=" p-6 bg-white border-b border-gray-200">
@@ -42,11 +45,13 @@
                   <li>City: {{ $address->locality }}</li>
                   <li>Country: {{ $address->country }}</li>
                 </ul>
-              </div>  
+                </div>  
             </div>
         </div>
-      </div>
-      
+    </div>
+    @endif
+    
+    @if(!empty($profile_pic))
     <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -63,5 +68,6 @@
             </div>  
         </div>
     </div>
+    @endif
 
 </x-app-layout>
