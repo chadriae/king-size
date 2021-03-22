@@ -1,3 +1,7 @@
+<?php
+    $google_key = config('services.google.key');
+?>
+
 <x-app-layout>
 
     <script>
@@ -13,6 +17,7 @@
     let address1Field;
     let address2Field;
     let postalField;
+
 
     function initAutocomplete() {
         address1Field = document.querySelector("#ship-address");
@@ -104,67 +109,68 @@
                     </div>
                     @endif
 
-                  <form method="POST" action=" {{ route('address.store') }}" autocomplete="off" id="google-map">
-                    @csrf
-                    <div class="leading-10">
-                        <label class="full-field">
-                            <span class="title">Fill in your address here</span><br />
-                            <span class="flex items-center justify-end"><em>* = required field</em></span>
-                        </label>
-                        <label class="full-field">
-                            <span class="form-label font-bold">Address: street + number*</span>
-                            <input
-                                id="ship-address"
-                                name="ship-address"
-                                required
-                                autocomplete="off"
-                                class="google-map-input"
-                            />
-                        </label>
-                        <label class="full-field">
-                            <span class="form-label">Apartment, unit, suite, or floor</span>
-                            <input id="address2" name="address2" class="google-map-input" />
-                        </label>
-                        <label class="full-field">
-                            <span class="form-label font-bold">City*</span>
-                            <input id="locality" name="locality" class="google-map-input" required />
-                        </label>
-                        <label class="full-field" for="postal_code">
-                            <span class="form-label font-bold">Postal code*</span>
-                            <input id="postcode" name="postcode" class="google-map-input" required />
-                        </label>
-                        <label class="full-field">
-                            <span class="form-label font-bold">Country/Region*</span>
-                            <input id="country" name="country" class="google-map-input" required />
-                        </label>
-                    </div>
-
-                    @if(Session::has('success'))
-                        <div class="p-6 bg-white border-b border-gray-200">
-                            <div class="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
-                                {{ Session::get('success') }}
-                            </div>
+                    <form method="POST" action=" {{ route('address.store') }}" autocomplete="off" id="google-map">
+                        @csrf
+                        <div class="leading-10">
+                            <label class="full-field">
+                                <span class="title">Fill in your address here</span><br />
+                                <span class="flex items-center justify-end"><em>* = required field</em></span>
+                            </label>
+                            <label class="full-field">
+                                <span class="form-label font-bold">Address: street + number*</span>
+                                <input
+                                    id="ship-address"
+                                    name="ship-address"
+                                    required
+                                    autocomplete="off"
+                                    class="google-map-input"
+                                />
+                            </label>
+                            <label class="full-field">
+                                <span class="form-label">Apartment, unit, suite, or floor</span>
+                                <input id="address2" name="address2" class="google-map-input" />
+                            </label>
+                            <label class="full-field">
+                                <span class="form-label font-bold">City*</span>
+                                <input id="locality" name="locality" class="google-map-input" required />
+                            </label>
+                            <label class="full-field" for="postal_code">
+                                <span class="form-label font-bold">Postal code*</span>
+                                <input id="postcode" name="postcode" class="google-map-input" required />
+                            </label>
+                            <label class="full-field">
+                                <span class="form-label font-bold">Country/Region*</span>
+                                <input id="country" name="country" class="google-map-input" required />
+                            </label>
                         </div>
-                    @endif
 
-                    <div class="flex items-center justify-center m-4">
-                        <x-button class="ml-4">
-                            {{ __('Update address') }}
-                        </x-button>
-                    </div>
-                    <div class="flex items-center justify-center m-4">
-                        <x-button class="ml-4">
-                            <a href={{ route('address.index') }}>Back</a>
-                        </x-button>
-                    </div>
+                        @if(Session::has('success'))
+                            <div class="p-6 bg-white border-b border-gray-200">
+                                <div class="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
+                                    {{ Session::get('success') }}
+                                </div>
+                            </div>
+                        @endif
 
-              </form>
-              
-                  <script
-                    src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initAutocomplete&libraries=places&v=weekly"
+                        <div class="flex items-center justify-center m-4">
+                            <x-button class="ml-4">
+                                {{ __('Update address') }}
+                            </x-button>
+                        </div>
+                        <div class="flex items-center justify-center m-4">
+                            <x-button class="ml-4">
+                                <a href={{ route('address.index') }}>Back</a>
+                            </x-button>
+                        </div>
+
+                    </form>
+
+                    <script
+                    src="https://maps.googleapis.com/maps/api/js?key=<?= $google_key ?>&callback=initAutocomplete&libraries=places&v=weekly"
                     async
-                  ></script>
-
+                    >
+                    </script>
+                    
                 </div>
             </div>
         </div>
