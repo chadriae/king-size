@@ -29,6 +29,16 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="pt-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                   Whoops! Looks like you haven't provided your specialties yet. Please go to your <a class="text-red-600" href={{ route('specialties.index' )}}>specialties page</a> and update your information.
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
 
     @if(!empty($address))
@@ -49,15 +59,28 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="pt-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                   Whoops! Looks like you haven't provided your address yet. Please go to your <a class="text-red-600" href={{ route('address.index' )}}>address page</a> and update your information.
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
     
-    @if(!empty($profile_pic))
     <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
                 <div class="flex items-center justify-center m-4">
+                    @if(!empty($profile_pic))
                     <img src="{{ asset('uploads') }}/<?= $profile_pic->image_name ?>" width="100px" height="100px">
+                    @else
+                    <img src="{{ asset('img/robot.png') }}" width="100px" height="100px">
+                    @endif
                 </div>
                 <div class="flex items-center justify-center m-4">
                     <form action="{{ route('image.upload') }}" method="POST">
@@ -68,6 +91,5 @@
             </div>  
         </div>
     </div>
-    @endif
 
 </x-app-layout>

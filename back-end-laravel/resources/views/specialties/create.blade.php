@@ -19,19 +19,88 @@
                         </ul>
                     </div>
                     @endif
-                    Check all the specialties you have.
+                    <span class="font-bold">Current specialties: </span>
+                    {{  !empty($specialties->specialties) ? $specialties->specialties : 'None' }}
                     <form method="POST" action=" {{ route('specialties.store') }}">
                         @csrf
-                        <div class="p-6 bg-white border-b border-gray-200">
-                            <label for="specialties" :value="__('Specialties')">
-                                <input type="checkbox" name="specialties[]" value="Laravel">
-                                <span>Laravel</span>
-                                <input type="checkbox" name="specialties[]" value="React">
-                                <span>React</span>
-                                <input type="checkbox" name="specialties[]" value="MySQL">
-                                <span>MySQL</span>
-                                <input type="checkbox" name="specialties[]" value="Kakken">
-                                <span>Kakken</span>
+
+                        <div class="leading-10 p-6 bg-white border-b border-gray-200">
+                            <span class="font-bold">Categories</span>
+                            <br>
+                            <label :value="__('categories')" class="categories">
+                                    <input type="checkbox" name="categories[]" value="City bikes">
+                                    City bikes
+                            </label>
+                            <label :value="__('categories')" class="categories">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="categories[]" value="Mountain bikes">
+                                    Mountain bikes
+                                </span>
+                            </label>
+                            <label :value="__('categories')" class="categories">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="categories[]" value="Race bikes">
+                                    Race bikes
+                                </span>
+                            </label>
+                            <label :value="__('categories')" class="categories">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="categories[]" value="Electric bikes">
+                                    Electric bikes
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="leading-10 p-6 bg-white border-b border-gray-200">
+                            <span class="font-bold">Specialties</span>
+                            <br>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Flat tires">
+                                    Flat tires
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Whole bike repair">
+                                    Whole bike repair
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Small bike parts repair">
+                                    Small bike parts repair
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Fixing brakes">
+                                    Fixing brakes
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Fixing lights">
+                                    Fixing lights
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Fixing brakes">
+                                    Fixing brakes
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Broken chain">
+                                    Broken chain
+                                </span>
+                            </label>
+                            <label :value="__('Specialties')" class="specialties">
+                                <span class="pr-4">
+                                    <input type="checkbox" name="specialties[]" value="Add new parts to bikes">
+                                    Add new parts to bikes
+                                </span>
                             </label>
                         </div>
             
@@ -49,6 +118,11 @@
                             </x-button>
                         </div>
                     </form>
+                    <div class="flex items-center justify-center m-4">
+                        <x-button class="ml-4">
+                            <a href={{ route('specialties.index') }}>Back</a>
+                        </x-button>
+                    </div>
                 </div>
             </div>
         </div>

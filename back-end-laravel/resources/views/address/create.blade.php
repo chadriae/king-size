@@ -157,13 +157,14 @@
                                 {{ __('Update address') }}
                             </x-button>
                         </div>
-                        <div class="flex items-center justify-center m-4">
-                            <x-button class="ml-4">
-                                <a href={{ route('address.index') }}>Back</a>
-                            </x-button>
-                        </div>
 
                     </form>
+
+                    <div class="flex items-center justify-center m-4">
+                        <x-button class="ml-4">
+                            <a href={{ route('address.index') }}>Back</a>
+                        </x-button>
+                    </div>
 
                     <script
                     src="https://maps.googleapis.com/maps/api/js?key=<?= $google_key ?>&callback=initAutocomplete&libraries=places&v=weekly"

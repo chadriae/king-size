@@ -16,9 +16,10 @@
                 <div class="panel-body">
 
                     @if(Session::has('success'))
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        {{Session::get('success')}}
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
+                            {{ Session::get('success') }}
+                        </div>
                     </div>
 
                     @elseif(Session::has('failed'))
