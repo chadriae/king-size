@@ -20,7 +20,7 @@
 
 
     function initAutocomplete() {
-        address1Field = document.querySelector("#ship-address");
+        address1Field = document.querySelector("#ship_address");
         address2Field = document.querySelector("#address2");
         postalField = document.querySelector("#postcode");
         
@@ -119,8 +119,8 @@
                             <label class="full-field">
                                 <span class="form-label font-bold">Address: street + number*</span>
                                 <input
-                                    id="ship-address"
-                                    name="ship-address"
+                                    id="ship_address"
+                                    name="ship_address"
                                     required
                                     autocomplete="off"
                                     class="google-map-input"

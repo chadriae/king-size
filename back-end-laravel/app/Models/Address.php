@@ -11,7 +11,7 @@ class Address extends Model
 
     protected $fillable = [
         'userId',
-        'ship-address',
+        'ship_address',
         'address2',
         'locality',
         'postcode',
