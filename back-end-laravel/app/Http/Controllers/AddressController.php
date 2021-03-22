@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 class AddressController extends Controller
 {
     /**
@@ -14,7 +17,9 @@ class AddressController extends Controller
      */
     public function index()
     {
-        return view('address.index');
+        $address = DB::table('addresses')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+
+        return view('address.index', compact('address'));
     }
 
     /**
@@ -24,7 +29,7 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+        return view('address.create');
     }
 
     /**
@@ -35,7 +40,12 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->input();
+        $data['userId'] = Auth::id();
+
+        Address::create($data);
+
+        return back()->with('success', "Info updated successfully.");
     }
 
     /**

@@ -1,14 +1,99 @@
 <x-app-layout>
+
+    <script>
+    // This sample uses the Places Autocomplete widget to:
+    // 1. Help the user select a place
+    // 2. Retrieve the address components associated with that place
+    // 3. Populate the form fields with those address components.
+    // This sample requires the Places library, Maps JavaScript API.
+    // Include the libraries=places parameter when you first load the API.
+    // For example: <script
+    // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    let autocomplete;
+    let address1Field;
+    let address2Field;
+    let postalField;
+
+    function initAutocomplete() {
+        address1Field = document.querySelector("#ship-address");
+        address2Field = document.querySelector("#address2");
+        postalField = document.querySelector("#postcode");
+        // Create the autocomplete object, restricting the search predictions to
+        // addresses in the US and Canada.
+        autocomplete = new google.maps.places.Autocomplete(address1Field, {
+        componentRestrictions: { country: ["us", "ca"] },
+        fields: ["address_components", "geometry"],
+        types: ["address"],
+        });
+        address1Field.focus();
+        // When the user selects an address from the drop-down, populate the
+        // address fields in the form.
+        autocomplete.addListener("place_changed", fillInAddress);
+    }
+
+    function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        const place = autocomplete.getPlace();
+        let address1 = "";
+        let postcode = "";
+
+        // Get each component of the address from the place details,
+        // and then fill-in the corresponding field on the form.
+        // place.address_components are google.maps.GeocoderAddressComponent objects
+        // which are documented at http://goo.gle/3l5i5Mr
+        for (const component of place.address_components) {
+        const componentType = component.types[0];
+
+        switch (componentType) {
+            case "street_number": {
+            address1 = `${component.long_name} ${address1}`;
+            break;
+            }
+
+            case "route": {
+            address1 += component.short_name;
+            break;
+            }
+
+            case "postal_code": {
+            postcode = `${component.long_name}${postcode}`;
+            break;
+            }
+
+            case "postal_code_suffix": {
+            postcode = `${postcode}-${component.long_name}`;
+            break;
+            }
+
+            case "locality":
+            document.querySelector("#locality").value = component.long_name;
+            break;
+
+            case "country":
+            document.querySelector("#country").value = component.long_name;
+            break;
+        }
+        }
+        address1Field.value = address1;
+        postalField.value = postcode;
+        // After filling the form with address components from the Autocomplete
+        // prediction, set cursor focus on the second address line to encourage
+        // entry of subpremise information such as apartment, unit, or floor number.
+        address2Field.focus();
+    }
+    </script>  
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Specialties') }}
+            {{ __('Address') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class=" p-6 bg-white border-b border-gray-200">
+
                     @if ($errors->any())
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -19,38 +104,71 @@
                         </ul>
                     </div>
                     @endif
-                    Check all the specialties you have.
-                    <form method="POST" action=" {{ route('specialties.store') }}">
-                        @csrf
+
+                  <form method="POST" action=" {{ route('address.store') }}" autocomplete="off" id="google-map">
+                    @csrf
+                    <div class="leading-9">
+                        <span class="title">Sample address form for North America</span><br />
+                        <span><em>* = required field</em></span>
+                        <label class="full-field">
+                        <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
+                        <span class="form-label">Deliver to*</span>
+                        <input
+                            id="ship-address"
+                            name="ship-address"
+                            required
+                            autocomplete="off"
+                            class="google-map-input"
+                        />
+                        </label>
+                        <label class="full-field">
+                        <span class="form-label">Apartment, unit, suite, or floor #</span>
+                        <input id="address2" name="address2" class="google-map-input" />
+                        </label>
+                        <label class="full-field">
+                        <span class="form-label">City*</span>
+                        <input id="locality" name="locality" class="google-map-input" required />
+                        </label>
+                        <label class="full-field" for="postal_code">
+                        <span class="form-label">Postal code*</span>
+                        <input id="postcode" name="postcode" class="google-map-input" required />
+                        </label>
+                        <label class="full-field">
+                        <span class="form-label">Country/Region*</span>
+                        <input id="country" name="country" class="google-map-input" required />
+                        </label>
+                    </div>
+
+                    @if(Session::has('success'))
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <label for="specialties" :value="__('Specialties')">
-                                <input type="checkbox" name="specialties[]" value="Laravel">
-                                <span>Laravel</span>
-                                <input type="checkbox" name="specialties[]" value="React">
-                                <span>React</span>
-                                <input type="checkbox" name="specialties[]" value="MySQL">
-                                <span>MySQL</span>
-                                <input type="checkbox" name="specialties[]" value="Kakken">
-                                <span>Kakken</span>
-                            </label>
+                            <div class="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
                         </div>
-            
-                            @if(Session::has('success'))
-                                <div class="p-6 bg-white border-b border-gray-200">
-                                    <div class="px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
-                                        {{ Session::get('success') }}
-                                    </div>
-                                </div>
-                            @endif
-            
-                        <div class="flex items-center justify-center m-4">
-                            <x-button class="ml-4">
-                                {{ __('Update specialties') }}
-                            </x-button>
-                        </div>
-                    </form>
+                    @endif
+
+                    <div class="flex items-center justify-center m-4">
+                        <x-button class="ml-4">
+                            {{ __('Update address') }}
+                        </x-button>
+                    </div>
+                    <div class="flex items-center justify-center m-4">
+                        <x-button class="ml-4">
+                            <a href={{ route('address.index') }}>Back</a>
+                        </x-button>
+                    </div>
+
+              </form>
+              
+                  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                  <script
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRoQNzIRNiXHm9anKnFnd7kzirxBLebkU&callback=initAutocomplete&libraries=places&v=weekly"
+                    async
+                  ></script>
+
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>
