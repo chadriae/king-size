@@ -18,10 +18,9 @@
         address1Field = document.querySelector("#ship-address");
         address2Field = document.querySelector("#address2");
         postalField = document.querySelector("#postcode");
-        // Create the autocomplete object, restricting the search predictions to
-        // addresses in the US and Canada.
+        
         autocomplete = new google.maps.places.Autocomplete(address1Field, {
-        componentRestrictions: { country: ["us", "ca"] },
+        componentRestrictions: { country: ["bel"] },
         fields: ["address_components", "geometry"],
         types: ["address"],
         });
@@ -42,37 +41,37 @@
         // place.address_components are google.maps.GeocoderAddressComponent objects
         // which are documented at http://goo.gle/3l5i5Mr
         for (const component of place.address_components) {
-        const componentType = component.types[0];
+            const componentType = component.types[0];
 
-        switch (componentType) {
-            case "street_number": {
-            address1 = `${component.long_name} ${address1}`;
-            break;
+            switch (componentType) {
+                case "route": {
+                address1 = `${component.long_name} ${address1}`;
+                break;
+                }
+
+                case "street_number": {
+                address1 += component.short_name;
+                break;
+                }
+
+                case "postal_code": {
+                postcode = `${component.long_name}${postcode}`;
+                break;
+                }
+
+                case "postal_code_suffix": {
+                postcode = `${postcode}-${component.long_name}`;
+                break;
+                }
+
+                case "locality":
+                document.querySelector("#locality").value = component.long_name;
+                break;
+
+                case "country":
+                document.querySelector("#country").value = component.long_name;
+                break;
             }
-
-            case "route": {
-            address1 += component.short_name;
-            break;
-            }
-
-            case "postal_code": {
-            postcode = `${component.long_name}${postcode}`;
-            break;
-            }
-
-            case "postal_code_suffix": {
-            postcode = `${postcode}-${component.long_name}`;
-            break;
-            }
-
-            case "locality":
-            document.querySelector("#locality").value = component.long_name;
-            break;
-
-            case "country":
-            document.querySelector("#country").value = component.long_name;
-            break;
-        }
         }
         address1Field.value = address1;
         postalField.value = postcode;
@@ -107,35 +106,36 @@
 
                   <form method="POST" action=" {{ route('address.store') }}" autocomplete="off" id="google-map">
                     @csrf
-                    <div class="leading-9">
-                        <span class="title">Sample address form for North America</span><br />
-                        <span><em>* = required field</em></span>
+                    <div class="leading-10">
                         <label class="full-field">
-                        <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
-                        <span class="form-label">Deliver to*</span>
-                        <input
-                            id="ship-address"
-                            name="ship-address"
-                            required
-                            autocomplete="off"
-                            class="google-map-input"
-                        />
+                            <span class="title">Fill in your address here</span><br />
+                            <span class="flex items-center justify-end"><em>* = required field</em></span>
                         </label>
                         <label class="full-field">
-                        <span class="form-label">Apartment, unit, suite, or floor #</span>
-                        <input id="address2" name="address2" class="google-map-input" />
+                            <span class="form-label font-bold">Address: street + number*</span>
+                            <input
+                                id="ship-address"
+                                name="ship-address"
+                                required
+                                autocomplete="off"
+                                class="google-map-input"
+                            />
                         </label>
                         <label class="full-field">
-                        <span class="form-label">City*</span>
-                        <input id="locality" name="locality" class="google-map-input" required />
+                            <span class="form-label">Apartment, unit, suite, or floor</span>
+                            <input id="address2" name="address2" class="google-map-input" />
+                        </label>
+                        <label class="full-field">
+                            <span class="form-label font-bold">City*</span>
+                            <input id="locality" name="locality" class="google-map-input" required />
                         </label>
                         <label class="full-field" for="postal_code">
-                        <span class="form-label">Postal code*</span>
-                        <input id="postcode" name="postcode" class="google-map-input" required />
+                            <span class="form-label font-bold">Postal code*</span>
+                            <input id="postcode" name="postcode" class="google-map-input" required />
                         </label>
                         <label class="full-field">
-                        <span class="form-label">Country/Region*</span>
-                        <input id="country" name="country" class="google-map-input" required />
+                            <span class="form-label font-bold">Country/Region*</span>
+                            <input id="country" name="country" class="google-map-input" required />
                         </label>
                     </div>
 
@@ -160,7 +160,6 @@
 
               </form>
               
-                  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
                   <script
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRoQNzIRNiXHm9anKnFnd7kzirxBLebkU&callback=initAutocomplete&libraries=places&v=weekly"
                     async
