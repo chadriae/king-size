@@ -86,11 +86,13 @@ class ProfileController extends Controller
         //
     }
 
-    public function getSpecialties()
+    public function getInformation()
     {
         $categories = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
         $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->first();
+        $address = DB::table('addresses')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+        $profile_pic = DB::table('images')->where('userId', Auth::user()->id)->latest('updated_at')->first();
 
-        return view('profile', ['specialties' => $specialties, 'categories' => $categories]);
+        return view('profile', ['specialties' => $specialties, 'categories' => $categories, 'address' => $address, 'profile_pic' => $profile_pic]);
     }
 }

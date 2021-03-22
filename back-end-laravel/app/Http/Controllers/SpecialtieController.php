@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Specialtie;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class SpecialtieController extends Controller
 {
-    public function getSpecialties()
+    public function index()
     {
         $categories = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
         $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->first();

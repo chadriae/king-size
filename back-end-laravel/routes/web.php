@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpecialtieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AddressController;
-
-
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +27,15 @@ Route::group(['middleware' => 'auth'], function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/profile', [ProfileController::class, 'getSpecialties'])->name('profile');
+    Route::get('/profile', [ProfileController::class, 'getInformation'])->name('profile');
 
     Route::resource('specialties', SpecialtieController::class);
+    // Route::get('/specialties', [SpecialtieController::class, 'getSpecialties'])->name('specialties.index');
 
     Route::resource('address', AddressController::class);
 
-    Route::get('/specialties', [SpecialtieController::class, 'getSpecialties'])->name('specialties.index');
+    Route::get('imageupload', [ImageController::class, 'index'])->name('image.upload');
+    Route::post('imageupload', [ImageController::class, 'uploadImage'])->name('image.upload.post');
 });
 
 require __DIR__ . '/auth.php';
