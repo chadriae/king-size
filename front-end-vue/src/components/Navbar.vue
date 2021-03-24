@@ -41,7 +41,7 @@ export default {
   margin: 1vh 0;
   object-fit: fill;
   padding-right: 0.5vw;
-  border-right: 0.5vw solid white;
+  border-right: 0.3vw solid white;
 }
 .navLogo img {
   height: 100%;
@@ -73,8 +73,8 @@ li {
   border-bottom: 0.5vh solid transparent;
 }
 li:hover {
-  border-bottom: 0.5vh solid #fff;
-  border-radius: 3%;
+  border-bottom: 0.3vw solid #fff;
+  border-radius: 1%;
 }
 .navLink {
   margin: 6vh 2vw;
