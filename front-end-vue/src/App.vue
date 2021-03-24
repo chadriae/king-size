@@ -1,19 +1,17 @@
 <template>
   <div id='root'>
   <img alt="Vue logo" src="./assets/logo.png">
-    <div id='nav'>
-      <router-link to='/'> Home </router-link>
-      <router-link to='/about'>About </router-link>
-      <router-link to='/profiles'>Profiles </router-link>
-    </div>
+    <Navbar />
     <router-view />
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue'
 export default {
   name: 'App',
   components: {
+    Navbar
     
   }
 }
