@@ -7,7 +7,7 @@ This is the about page.
 import Authors from '../components/Authors.vue'
 
 export default {
-  name: 'Profiles',
+  name: 'About',
   components: {
     Authors
   }

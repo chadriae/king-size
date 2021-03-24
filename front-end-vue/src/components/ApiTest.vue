@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-      <p>This is where the profile cards will be seen.</p>
+      <p class="text-red-600">This is where the profile cards will be seen.</p>
   </div>
 </template>
 
