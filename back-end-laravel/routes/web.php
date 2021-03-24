@@ -19,7 +19,7 @@ use App\Http\Controllers\ImageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
 Route::group(['middleware' => 'auth'], function () {
