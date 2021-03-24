@@ -60,4 +60,13 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
+
+    // Defining a route in the routes/api.php file means our requests have a prefix of /api, because of the prefix defined in the app’s RouteServiceProvider class:
+    protected function mapApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
+    }
 }
