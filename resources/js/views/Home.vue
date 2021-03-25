@@ -1,17 +1,17 @@
 <template>
-<HomeTitle />
-<HelloWorld />
+<Welcome />
+<Info />
 </template>
 
 <script>
-import HomeTitle from '../components/HomeTitle.vue'
-import HelloWorld from '../components/HelloWorld.vue'
+import Welcome from '../components/Welcome.vue'
+import Info from '../components/Info.vue'
 
 export default {
   name: 'Home',
   components: {
-    HomeTitle,
-    HelloWorld,
+    Welcome,
+    Info
   }
 }
 </script>

@@ -18,30 +18,12 @@ export default {
 <style>
 #root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: #2c3e50;
-  border: 1px solid black;
+    margin: 0;
+  padding: 0;
+
 }
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../../../public/img/bike-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#app {
-
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  justify-content: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
 }
 </style>

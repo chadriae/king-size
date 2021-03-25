@@ -8,7 +8,7 @@
         {{ error }}
     </div>
 
-    <ul class="text-white" v-if="repairers">
+    <ul v-if="repairers">
         <li v-for="{ name, email, specialties, categories } in repairers">
             <strong>Name:</strong> {{ name }},
             <strong>Email:</strong> {{ email }},<br>
