@@ -30,7 +30,7 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("./assets/bike-bg.jpg");
+  background-image: url("../../../public/img/bike-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

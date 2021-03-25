@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <div class="navLogo"><img src="../assets/chainswhite.png" alt="" /></div>
+    <div class="navLogo"><img src="../../../public/img/chainswhite.png" alt="" /></div>
     <div id="navLinks">
       <ul>
         <li>
