@@ -8,12 +8,21 @@
         {{ error }}
     </div>
 
-    <ul v-if="repairers">
-        <li v-for="{ name, email } in repairers">
+    <ul v-if="repairers, specialties">
+        <li v-for="{ name, email, id } in repairers">
             <strong>Name:</strong> {{ name }},
+            <strong>categories:</strong> {{ specialties.categories }},
             <strong>Email:</strong> {{ email }}
         </li>
     </ul>
+
+    <!-- <ul v-if="specialties">
+        <li v-for="{ specialties, categories } in specialties">
+            <strong>categories:</strong> {{ categories }},
+            <strong>specialties:</strong> {{ specialties }}
+        </li>
+    </ul> -->
+
 </div>
 </template>
 
@@ -24,7 +33,8 @@ export default {
     data() {
         return {
             loading: false,
-            users: null,
+            repairers: null,
+            specialties: null,
             error: null,
         };
     },
@@ -38,9 +48,16 @@ export default {
             axios
                 .get('/api/repairers')
                 .then(response => {
+                    console.log(response);
+
                     this.loading = false;
                     this.repairers = response.data;
+                });
+            axios
+                .get('/api/specialties')
+                .then(response => {
                     console.log(response);
+                    this.specialties = response.data;
                 });
         }
     }

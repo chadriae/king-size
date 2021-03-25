@@ -30,7 +30,6 @@ class SpecialtieController extends Controller
         $data['userId'] = Auth::id();
         $data['categories'] = implode(", ", $data['categories']);
         $data['specialties'] = implode(", ", $data['specialties']);
-
         Specialtie::create($data);
 
         return back()->with('success', "Info updated successfully.");
@@ -44,7 +43,6 @@ class SpecialtieController extends Controller
     public function edit(Specialtie $specialtie)
     {
         $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
-
         return view('specialties.edit', compact('specialtie', 'specialties'));
     }
 
