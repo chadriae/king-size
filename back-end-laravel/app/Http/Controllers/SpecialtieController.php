@@ -68,4 +68,10 @@ class SpecialtieController extends Controller
         return redirect()->route('specialties.index')
             ->with('success', 'Specialty deleted successfully');
     }
+
+    public function returnSpecialties()
+    {
+        $specialties = DB::table('specialties')->get();
+        return response()->json($specialties);
+    }
 }

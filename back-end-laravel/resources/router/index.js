@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../js/views/Home.vue'
 import About from '../js/views/About.vue'
-import Profiles from '../js/views/Profiles.vue'
+import RepairersIndex from '../js/views/RepairersIndex.vue'
 
 const routerHistory = createWebHistory()
 
@@ -17,8 +17,9 @@ const router = createRouter({
         component: About
       },
       {
-        path: '/profiles',
-        component: Profiles
+        path: '/repairers',
+        name: 'repairers.index',
+        component: RepairersIndex
       },
     ]
   })
