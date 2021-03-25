@@ -1,18 +1,18 @@
 <template>
   <div id="nav">
-    <div class="navLogo"><img src="../../../public/img/chainswhite.png" alt="" /></div>
+    <div class="navLogo">
+      <img src="../../../public/img/chainswhite.png" alt="" />
+    </div>
     <div id="navLinks">
-      <ul>
-        <li>
-          <router-link class="routerLi" to="/"> Home </router-link>
-        </li>
-        <li>
-          <router-link class="routerLi" to="/about">About </router-link>
-        </li>
-        <li>
-          <router-link class="routerLi" to="/repairers">Repairers </router-link>
-        </li>
-      </ul>
+      <div class="navLink">
+        <router-link class="routerLi" to="/"> Home </router-link>
+      </div>
+      <div class="navLink">
+        <router-link class="routerLi" to="/about">About </router-link>
+      </div>
+      <div class="navLink">
+        <router-link class="routerLi" to="/repairers">Repairers </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -24,9 +24,12 @@ export default {
 </script>
 
 <style scoped>
-
 #nav {
-  background-image: linear-gradient(to top, rgba(180, 180, 180, 0), rgb(0, 0, 0));
+  background-image: linear-gradient(
+    to top,
+    rgba(180, 180, 180, 0),
+    rgb(0, 0, 0)
+  );
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -58,30 +61,23 @@ export default {
   justify-content: flex-end;
   height: 12vh;
 }
-ul {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-li {
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  padding: 0px 2vw;
-  list-style-type: none;
-  width: 6vw;
-  border: 1px solid yellow;
-  border-bottom: 0.5vh solid transparent;
-}
 
-li:hover {
+.navLink:hover {
   border-bottom: 0.3vw solid #fff;
   border-radius: 1%;
   transition: 0.3s ease;
 }
 .navLink {
-  margin: 6vh 2vw;
+    display: flex;
+  align-items: center;
+  margin: 2vh 2vw;
   width: 6vw;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 2vw;
+  list-style-type: none;
+  border: 1px solid yellow;
+  border-bottom: 0.5vh solid transparent;
 }
 .routerLi {
   color: #fff;
