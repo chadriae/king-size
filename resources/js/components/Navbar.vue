@@ -65,6 +65,7 @@ export default {
 .navLink:hover {
   border-bottom: 0.3vw solid #fff;
   border-radius: 1%;
+  font-size: 13pt;
   transition: 0.3s ease;
 }
 .navLink {

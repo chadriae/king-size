@@ -16064,7 +16064,7 @@ const getGlobalThis = () => {
       // event listeners are registered (the mutation observer will take care of them)
 
 
-      this.initializeElements(this.$el, () => {}, componentForClone); // Use mutation observer to detect new elements being added within this component at run-time.
+      this.initializeElements(this.$el, () => {}, componentForClone ? false : true); // Use mutation observer to detect new elements being added within this component at run-time.
       // Alpine's just so darn flexible amirite?
 
       this.listenForNewElementsToInitialize();
@@ -16153,15 +16153,15 @@ const getGlobalThis = () => {
       });
     }
 
-    initializeElements(rootEl, extraVars = () => {}, componentForClone = false) {
+    initializeElements(rootEl, extraVars = () => {}, shouldRegisterListeners = true) {
       this.walkAndSkipNestedComponents(rootEl, el => {
         // Don't touch spawns from for loop
         if (el.__x_for_key !== undefined) return false; // Don't touch spawns from if directives
 
         if (el.__x_inserted_me !== undefined) return false;
-        this.initializeElement(el, extraVars, componentForClone ? false : true);
+        this.initializeElement(el, extraVars, shouldRegisterListeners);
       }, el => {
-        if (!componentForClone) el.__x = new Component(el);
+        el.__x = new Component(el);
       });
       this.executeAndClearRemainingShowDirectiveStack();
       this.executeAndClearNextTickStack(rootEl);
@@ -16391,7 +16391,7 @@ const getGlobalThis = () => {
   }
 
   const Alpine = {
-    version: "2.8.2",
+    version: "2.8.1",
     pauseMutationObserver: false,
     magicProperties: {},
     onComponentInitializeds: [],
@@ -18397,7 +18397,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Welcome'
+  name: "Welcome"
 });
 
 /***/ }),
@@ -18698,19 +18698,29 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-51777872");
 
 var _hoisted_1 = {
-  "class": "hello"
+  "class": "welcomeContainer"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "text"
-}, "Welcome to our page", -1
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "welcomeTextContainer"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
+  "class": "welcomeText welcomeTitle"
+}, "Rekt bike?"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h4", {
+  "class": "welcomeText welcomeSubTitle"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Get your bike fixed in the"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("br"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("neighbourhood ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  "class": "moreInfo welcomeText"
+}, "find out more!", -1
 /* HOISTED */
 );
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, _hoisted_3]);
 });
 
 /***/ }),
@@ -18980,7 +18990,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text[data-v-a38a56ce] {\n  color: black;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text[data-v-a38a56ce] {\r\n  color: black;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19004,7 +19014,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#nav[data-v-6dde423b] {\n  background-image: linear-gradient(\n    to top,\n    rgba(180, 180, 180, 0),\n    rgb(0, 0, 0)\n  );\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  padding: 0 8vw;\n  height: 14vh;\n  border: 1px solid blue;\n  align-items: center;\n}\n.navLogo[data-v-6dde423b] {\n  height: 8vh;\n  width: 8vh;\n  border: 1px solid red;\n  margin: 1vh 0;\n  -o-object-fit: fill;\n     object-fit: fill;\n  padding-right: 0.5vw;\n  border-right: 0.3vw solid white;\n}\n.navLogo img[data-v-6dde423b] {\n  height: 100%;\n  width: 100%;\n}\n#navLinks[data-v-6dde423b] {\n  display: flex;\n  flex-direction: row;\n  border: 1px solid green;\n  margin: 1vh;\n  align-content: center;\n  width: 80vw;\n  justify-content: flex-end;\n  height: 12vh;\n}\n.navLink[data-v-6dde423b]:hover {\n  border-bottom: 0.3vw solid #fff;\n  border-radius: 1%;\n  transition: 0.3s ease;\n}\n.navLink[data-v-6dde423b] {\n    display: flex;\n  align-items: center;\n  margin: 2vh 2vw;\n  width: 6vw;\n  justify-content: center;\n  text-align: center;\n  padding: 0px 2vw;\n  list-style-type: none;\n  border: 1px solid yellow;\n  border-bottom: 0.5vh solid transparent;\n}\n.routerLi[data-v-6dde423b] {\n  color: #fff;\n  text-decoration: none;\n  text-transform: uppercase;\n  border-bottom: 3px solid transparent;\n  margin: 2vh 0;\n}\n.routerLi[data-v-6dde423b]:hover {\n  /* font-size: 13pt; */\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#nav[data-v-6dde423b] {\r\n  background-image: linear-gradient(\r\n    to top,\r\n    rgba(180, 180, 180, 0),\r\n    rgb(0, 0, 0)\r\n  );\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  padding: 0 8vw;\r\n  height: 14vh;\r\n  border: 1px solid blue;\r\n  align-items: center;\n}\n.navLogo[data-v-6dde423b] {\r\n  height: 8vh;\r\n  width: 8vh;\r\n  border: 1px solid red;\r\n  margin: 1vh 0;\r\n  -o-object-fit: fill;\r\n     object-fit: fill;\r\n  padding-right: 0.5vw;\r\n  border-right: 0.3vw solid white;\n}\n.navLogo img[data-v-6dde423b] {\r\n  height: 100%;\r\n  width: 100%;\n}\n#navLinks[data-v-6dde423b] {\r\n  display: flex;\r\n  flex-direction: row;\r\n  border: 1px solid green;\r\n  margin: 1vh;\r\n  align-content: center;\r\n  width: 80vw;\r\n  justify-content: flex-end;\r\n  height: 12vh;\n}\n.navLink[data-v-6dde423b]:hover {\r\n  border-bottom: 0.3vw solid #fff;\r\n  border-radius: 1%;\r\n  font-size: 13pt;\r\n  transition: 0.3s ease;\n}\n.navLink[data-v-6dde423b] {\r\n    display: flex;\r\n  align-items: center;\r\n  margin: 2vh 2vw;\r\n  width: 6vw;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 0px 2vw;\r\n  list-style-type: none;\r\n  border: 1px solid yellow;\r\n  border-bottom: 0.5vh solid transparent;\n}\n.routerLi[data-v-6dde423b] {\r\n  color: #fff;\r\n  text-decoration: none;\r\n  text-transform: uppercase;\r\n  border-bottom: 3px solid transparent;\r\n  margin: 2vh 0;\n}\n.routerLi[data-v-6dde423b]:hover {\r\n  /* font-size: 13pt; */\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19034,7 +19044,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_public_img_bike_bg_jpg__WEBPACK_IMPORTED_MODULE_2__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hello[data-v-51777872]{\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    background-repeat: no-repeat;\n    background-size: cover;\n    height: 800px;\n    width: 100%;\n}\n.text[data-v-51777872]{\n    font-size: 60px;\n    color: white;\n    text-transform: uppercase;\n    padding: 100px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.welcomeContainer[data-v-51777872] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: flex-end;\r\n  justify-content: center;\r\n  padding: 0 8vw;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  height: 800px;\r\n  width: auto;\n}\nh1[data-v-51777872],\r\nh4[data-v-51777872] {\r\n  margin: 0;\n}\n.welcomeTextContainer[data-v-51777872] {\r\n  background-color: rgba(200, 0, 0, 0.3);\r\n  border-right: 0.5vw solid white;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding-right: 2.5vw;\n}\n.welcomeText[data-v-51777872] {\r\n  color: white;\r\n  text-align: right;\n}\n.welcomeTitle[data-v-51777872] {\r\n  font-size: 60pt;\r\n  text-transform: uppercase;\r\n  padding: 0;\r\n  background-color: rgba(0, 0, 0, 0.3);\n}\n.welcomeSubTitle[data-v-51777872] {\r\n  font-size: 35pt;\n}\n.moreInfo[data-v-51777872] {\r\n  border: 0;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  background-color: transparent;\r\n  text-transform: uppercase;\r\n  background-color: rgb(202, 34, 34);\r\n  margin: 4vh 0.5vw 4vh 0;\r\n  padding: 1.7vh 1.5vw;\r\n  border-radius: 25px 0 25px 25px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19058,7 +19068,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#root {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n    margin: 0;\n  padding: 0;\n}\nbody {\n  margin: 0;\n  padding: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#root {\r\n  font-family: Avenir, Helvetica, Arial, sans-serif;\r\n    margin: 0;\r\n  padding: 0;\n}\nbody {\r\n  margin: 0;\r\n  padding: 0;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19082,7 +19092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.text-white{\n    color:white;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.text-white{\r\n    color:white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
