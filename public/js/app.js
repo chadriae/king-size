@@ -18865,11 +18865,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 256
   /* UNKEYED_FRAGMENT */
-<<<<<<< HEAD
   )), _hoisted_10])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
-=======
-  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <ul v-if=\"specialties\">\r\n        <li v-for=\"{ specialties, categories } in specialties\">\r\n            <strong>categories:</strong> {{ categories }},\r\n            <strong>specialties:</strong> {{ specialties }}\r\n        </li>\r\n    </ul> ")]);
->>>>>>> e1896c4f8b218e966347b3c424dde094210cce82
 }
 
 /***/ }),
