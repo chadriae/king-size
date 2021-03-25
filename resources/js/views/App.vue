@@ -18,7 +18,7 @@ export default {
 <style>
 #root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-    margin: 0;
+  margin: 0;
   padding: 0;
 
 }
