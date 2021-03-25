@@ -69,7 +69,7 @@ class SpecialtieController extends Controller
 
     public function returnSpecialties()
     {
-        $specialties = DB::table('specialties')->get();
-        return response()->json($specialties);
+        return DB::table('users')
+            ->join('specialties', 'users.id', '=', 'specialties.userId')->get();
     }
 }
