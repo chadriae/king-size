@@ -20,12 +20,12 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  color: #2c3e50;
-  border: 1px solid black;
+  transform: translate(-50%, -50%); */
+  color: #fff;
+  border: 1px solid #fff;
 }
 body {
   margin: 0;
