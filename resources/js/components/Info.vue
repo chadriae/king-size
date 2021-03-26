@@ -72,11 +72,11 @@ export default {
   /* background-color: rgba(100, 0, 50, 0.5); */
 }
 .infoTitle>h3 {
-  font-size: 2.2vw;
+  font-size: 4.5vh;
   font-weight: 700;
 }
 .infoTitle>p {
-  font-size: 1vw;
+  font-size: 2vh;
   text-align: center;
 }
 .infoSections {
@@ -99,12 +99,12 @@ export default {
 
 }
 .infoSection>h4 {
-  font-size: 1.6vw;
+  font-size: 3.5vh;
   font-weight: 600;
   margin: 1vh;
 }
 .infoSection>p {
-  font-size: 1vw;
+  font-size: 2vh;
 }
 
 .sectionIcon {

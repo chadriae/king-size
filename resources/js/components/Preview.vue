@@ -62,10 +62,10 @@ export default {
   justify-content: center;
 }
 .previewText > h3 {
- font-size: 2.2vw;
+ font-size: 4.5vh;
   font-weight: 700;}
   .previewText > p {
-       font-size: 1vw;
+       font-size: 2vh;
 }
   
 .preview1 {
