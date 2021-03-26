@@ -10,11 +10,22 @@ class Specialtie extends Model
     use HasFactory;
 
     protected $fillable = [
-        'userId',
+        'user_id',
         'categories',
         'specialties'
     ];
 
+    // Relationships, model specialtie belongs to repairer/user
+    protected $table = 'specialties';
+    protected $primaryKey = 'id';
+
+    public function repairer()
+    {
+        return $this->belongsTo(Repairer::class);
+    }
+
+
+    // 
     public function setSpecialtyAttribute($value)
     {
         $this->attributes['specialties'] = json_encode($value);

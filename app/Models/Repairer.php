@@ -13,4 +13,11 @@ class Repairer extends Model
      * The table users is the primary table for Repairers
      */
     protected $table = 'users';
+
+    protected $primaryKey = 'id';
+
+    public function specialties()
+    {
+        return $this->hasOne(Specialtie::class);
+    }
 }
