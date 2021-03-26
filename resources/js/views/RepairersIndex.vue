@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="w-full mx-auto">
     <div class="loading" v-if="loading">
         Loading...
     </div>
@@ -8,39 +8,26 @@
         {{ error }}
     </div>
 
-
+    <!-- Container body layout -->
+    <div class="grid grid-rows-6 grid-cols-6">
+        <Filter />
+        <RepairerCard />
+    </div>
 </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Filter from '../components/Filter.vue';
+import RepairerCard from '../components/RepairerCard.vue';
+
 export default {
     name: 'RepairersIndex',
-    data() {
-        return {
-            loading: false,
-            repairers: null,
-            specialties: null,
-            error: null,
-        };
-    },
-    created() {
-        this.fetchData();
-    },
-    methods: {
-        fetchData() {
-            this.error = this.users = null;
-            this.loading = true;
-            axios
-                .get('/api/repairers')
-                .then(response => {
-                    console.log(response);
-                    this.loading = false;
-                    this.repairers = response.data;
-                });
-        }
+    components: {
+        Filter, 
+        RepairerCard
     }
 }
+
 </script>
 
 <style scoped>
