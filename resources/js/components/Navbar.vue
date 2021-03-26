@@ -66,6 +66,7 @@ export default {
 .navLink:hover {
   border-bottom: 0.3vw solid #fff;
   border-radius: 1%;
+  font-size: 13pt;
   transition: 0.3s ease;
 }
 .navLink {
@@ -87,7 +88,7 @@ export default {
   border-bottom: 3px solid transparent;
   margin: 2vh 0;
 }
-.routerLi:hover {
-  /* font-size: 13pt; */
-}
+/* .routerLi:hover {
+  font-size: 13pt;
+} */
 </style>
