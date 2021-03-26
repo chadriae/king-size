@@ -13,8 +13,8 @@ class SpecialtieController extends Controller
 {
     public function index()
     {
-        $categories = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
-        $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->first();
+        $categories = DB::table('specialties')->where('user_id', Auth::user()->id)->latest('updated_at')->first();
+        $specialties = DB::table('specialties')->where('user_id', Auth::user()->id)->first();
 
         return view('specialties.index', ['specialties' => $specialties, 'categories' => $categories]);
     }
@@ -27,7 +27,7 @@ class SpecialtieController extends Controller
     public function store(Request $request)
     {
         $data = $request->input();
-        $data['userId'] = Auth::id();
+        $data['user_id'] = Auth::id();
         $data['categories'] = implode(", ", $data['categories']);
         $data['specialties'] = implode(", ", $data['specialties']);
         Specialtie::create($data);
@@ -42,7 +42,7 @@ class SpecialtieController extends Controller
 
     public function edit(Specialtie $specialtie)
     {
-        $specialties = DB::table('specialties')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+        $specialties = DB::table('specialties')->where('user_id', Auth::user()->id)->latest('updated_at')->first();
         return view('specialties.edit', compact('specialtie', 'specialties'));
     }
 
@@ -70,6 +70,6 @@ class SpecialtieController extends Controller
     public function returnSpecialties()
     {
         return DB::table('users')
-            ->join('specialties', 'users.id', '=', 'specialties.userId')->get();
+            ->join('specialties', 'users.id', '=', 'specialties.user_id')->get();
     }
 }

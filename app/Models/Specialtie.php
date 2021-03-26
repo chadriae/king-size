@@ -19,13 +19,14 @@ class Specialtie extends Model
     protected $table = 'specialties';
     protected $primaryKey = 'id';
 
-    public function repairer()
+    public function user()
     {
-        return $this->belongsTo(Repairer::class);
+        $specialties = Specialtie::all();
+        return $specialties->belongsTo(User::class);
     }
 
 
-    // 
+    // Writing to DB
     public function setSpecialtyAttribute($value)
     {
         $this->attributes['specialties'] = json_encode($value);

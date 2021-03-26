@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Repairer;
+use App\Models\User;
 
 
 class RepairerController extends Controller
@@ -20,7 +21,7 @@ class RepairerController extends Controller
 
         // return response()->json($repairers);
 
-        $repairers = Repairer::find(1)->specialties;
+        $repairers = User::with(['specialties', 'address'])->get();
         return response()->json($repairers);
     }
 }

@@ -17,7 +17,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $address = DB::table('addresses')->where('userId', Auth::user()->id)->latest('updated_at')->first();
+        $address = DB::table('addresses')->where('user_id', Auth::user()->id)->latest('updated_at')->first();
 
         return view('address.index', compact('address'));
     }
@@ -41,7 +41,7 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $data = $request->input();
-        $data['userId'] = Auth::id();
+        $data['user_id'] = Auth::id();
 
         Address::create($data);
 
