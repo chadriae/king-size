@@ -46,17 +46,17 @@ h4 {
   text-align: right;
 }
 .welcomeTitle {
-  font-size: 7vw;
+  font-size: 12vh;
   text-transform: uppercase;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
 .welcomeSubTitle {
-  font-size: 2.5vw;
+  font-size: 5vh;
 }
 .moreInfo {
   border: 0;
-  font-size: 1.2vw;
+  font-size: 2.5vh;
   font-weight: bold;
   background-color: transparent;
   text-transform: uppercase;
