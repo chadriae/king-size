@@ -21,7 +21,7 @@ class RepairerController extends Controller
 
         // return response()->json($repairers);
 
-        $repairers = Repairer::with(['specialties', 'address'])->get();
+        $repairers = Repairer::with(['specialties', 'address', 'profile_pic'])->get();
         return response()->json($repairers);
     }
 }

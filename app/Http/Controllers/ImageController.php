@@ -23,13 +23,13 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $userId = Auth::id();
+        $user_id = Auth::id();
 
         $image = time() . '.' . $request->image->extension();
 
         $request->image->move(public_path('uploads'), $image);
 
-        $image = Image::create(["image_name" => $image, "userId" => $userId]);
+        $image = Image::create(["image_name" => $image, "user_id" => $user_id]);
 
         if (!is_null($image)) {
             return back()->with('success', 'Success! image uploaded');

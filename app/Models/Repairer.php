@@ -30,4 +30,9 @@ class Repairer extends Model
     {
         return $this->hasOne(Address::class, 'user_id')->latest();
     }
+
+    public function profile_pic()
+    {
+        return $this->hasOne(Image::class, 'user_id')->latest();
+    }
 }

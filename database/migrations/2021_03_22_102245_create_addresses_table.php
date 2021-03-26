@@ -17,7 +17,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('ship_address');
-            $table->string('address2');
+            $table->string('address2')->nullable();
             $table->string('locality');
             $table->string('postcode');
             $table->string('country');
