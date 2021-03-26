@@ -62,7 +62,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
 .infoTitle {
   display: flex;

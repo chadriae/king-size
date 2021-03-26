@@ -1,7 +1,7 @@
 <template>
   <div class="welcomeContainer">
     <div class="welcomeTextContainer">
-      <h1 class="welcomeText welcomeTitle">Rekt bike?</h1>
+      <h1 class="welcomeText welcomeTitle">Re<span id="titleSpace">kt</span> bike?</h1>
       <h4 class="welcomeText welcomeSubTitle">
         Get your bike fixed in the<br />neighbourhood
       </h4>
@@ -46,10 +46,14 @@ h4 {
   text-align: right;
 }
 .welcomeTitle {
+  letter-spacing: 2px;
   font-size: 12vh;
   text-transform: uppercase;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.3);
+}
+#titleSpace {
+  letter-spacing: 8px;
 }
 .welcomeSubTitle {
   font-size: 5vh;
