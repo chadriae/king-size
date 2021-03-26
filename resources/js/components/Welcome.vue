@@ -26,7 +26,7 @@ export default {
   background-image: url("../../../public/img/bike-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 800px;
+  height: 86vh;
   width: auto;
 }
 h1,
@@ -46,23 +46,23 @@ h4 {
   text-align: right;
 }
 .welcomeTitle {
-  font-size: 60pt;
+  font-size: 7vw;
   text-transform: uppercase;
   padding: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
 .welcomeSubTitle {
-  font-size: 35pt;
+  font-size: 2.5vw;
 }
 .moreInfo {
   border: 0;
-  font-size: 16px;
+  font-size: 1.2vw;
   font-weight: bold;
   background-color: transparent;
   text-transform: uppercase;
-  background-color: rgb(202, 34, 34);
+  background-color: #c92222;
   margin: 4vh 0.5vw 4vh 0;
   padding: 1.7vh 1.5vw;
-  border-radius: 25px 0 25px 25px;
+  border-radius: 2vw 0 2vw 2vw;
 }
 </style>
