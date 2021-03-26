@@ -60,7 +60,7 @@ h4 {
   font-weight: bold;
   background-color: transparent;
   text-transform: uppercase;
-  background-color: rgb(202, 34, 34);
+  background-color: #c92222;
   margin: 4vh 0.5vw 4vh 0;
   padding: 1.7vh 1.5vw;
   border-radius: 2vw 0 2vw 2vw;

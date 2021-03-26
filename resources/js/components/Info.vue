@@ -1,8 +1,8 @@
 <template>
   <div class="infoContainer">
     <div class="infoTitle">
-      <h3>Topping pie ice cream</h3>
-      <p>Cheesecake tootsie roll cake marzipan muffin. </p>
+      <h3>Icing gingerbread dessert candy cupcake apple pie</h3>
+      <p>Lemon drops dragée brownie marzipan sugar plum lollipop marshmallow. Icing bonbon brownie <br> liquorice dragée cheesecake donut brownie liquorice </p>
     </div>
     <div class="infoSections">
       <div class="infoSection">
@@ -68,39 +68,47 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(100, 0, 50, 0.5);
+  padding: 2vh 0;
+  /* background-color: rgba(100, 0, 50, 0.5); */
 }
 .infoTitle>h3 {
   font-size: 2.2vw;
   font-weight: 700;
 }
 .infoTitle>p {
-  font-size: 1.2vw;
+  font-size: 1vw;
+  text-align: center;
 }
 .infoSections {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 50, 0.5);
+  align-items: flex-start;
+  margin-top: 2vh;
+  /* background-color: rgba(0, 0, 50, 0.5); */
 }
 .infoSection {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 150, 0, 0.5);
+  /* background-color: rgba(0, 150, 0, 0.5); */
   align-items: center;
   text-align: center;
+  width: 27vw;
+    margin: 2vh 3vw;
+
+
 }
 .infoSection>h4 {
   font-size: 1.6vw;
   font-weight: 600;
+  margin: 1vh;
 }
 .infoSection>p {
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .sectionIcon {
-  height: 9vh;
-  width: 9vh;
-}
+  height: 7vh;
+  width: 7vh;
+margin: 2vh 0 1vh;}
 </style>
