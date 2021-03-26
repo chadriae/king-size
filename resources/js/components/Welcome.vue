@@ -1,12 +1,14 @@
 <template>
   <div class="welcomeContainer">
     <div class="welcomeTextContainer">
-      <h1 class="welcomeText welcomeTitle">Re<span id="titleSpace">kt</span> bike?</h1>
+      <h1 class="welcomeText welcomeTitle">
+        Re<span id="titleSpace">kt</span> bike?
+      </h1>
       <h4 class="welcomeText welcomeSubTitle">
         Get your bike fixed in the<br />neighbourhood
       </h4>
     </div>
-    <button class="moreInfo welcomeText">find out more!</button>
+    <button class="moreInfo welcomeText"><p>find out more!</p></button>
   </div>
 </template>
 
@@ -34,7 +36,7 @@ h4 {
   margin: 0;
 }
 .welcomeTextContainer {
-  background-color: rgba(200, 0, 0, 0.3);
+  /* background-color: rgba(200, 0, 0, 0.3); */
   border-right: 0.5vw solid white;
   margin-top: 0;
   margin-bottom: 0;
@@ -48,9 +50,10 @@ h4 {
 .welcomeTitle {
   letter-spacing: 2px;
   font-size: 12vh;
+  font-weight: 800;
   text-transform: uppercase;
   padding: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 #titleSpace {
   letter-spacing: 8px;
@@ -68,5 +71,10 @@ h4 {
   margin: 4vh 0.5vw 4vh 0;
   padding: 1.7vh 1.5vw;
   border-radius: 2vw 0 2vw 2vw;
+  transition: 0.3s ease-out ;
+}
+.moreInfo:hover {
+  font-size: 3vh;
+  transition: 0.3s ease;
 }
 </style>
