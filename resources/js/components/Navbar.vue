@@ -26,23 +26,24 @@ export default {
 
 <style scoped>
 #nav {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to top,
     rgba(180, 180, 180, 0),
     rgb(0, 0, 0)
-  );
+  ); */
+  background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 0 8vw;
   height: 14vh;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   align-items: center;
 }
 .navLogo {
   height: 8vh;
   width: 8vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 1vh 0;
   object-fit: fill;
   padding-right: 0.5vw;
@@ -55,7 +56,7 @@ export default {
 #navLinks {
   display: flex;
   flex-direction: row;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   margin: 1vh;
   align-content: center;
   width: 80vw;
@@ -78,7 +79,7 @@ export default {
   text-align: center;
   padding: 0px 2vw;
   list-style-type: none;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   border-bottom: 0.5vh solid transparent;
 }
 .routerLi {
