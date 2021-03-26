@@ -13,7 +13,6 @@
       <div class="navLink">
         <router-link class="routerLi" to="/repairers">Repairers </router-link>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,7 +30,7 @@ export default {
     rgba(180, 180, 180, 0),
     rgb(0, 0, 0)
   ); */
-  background-color: black;
+  background-color: #17161b;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -42,12 +41,22 @@ export default {
 }
 .navLogo {
   height: 8vh;
-  width: 8vh;
+  width: 9vh;
   /* border: 1px solid red; */
   margin: 1vh 0;
   object-fit: fill;
   padding-right: 0.5vw;
+  padding-left: 0.5vw;
   border-right: 0.3vw solid white;
+  transition: 0.6s ease;
+}
+.navLogo:hover {
+  height: 8.5vh;
+  width: 12vh;
+  border-right: 0.3vw solid transparent;
+  transition: 0.3s ease;
+  cursor: pointer;
+  
 }
 .navLogo img {
   height: 100%;
@@ -71,7 +80,7 @@ export default {
   transition: 0.3s ease;
 }
 .navLink {
-    display: flex;
+  display: flex;
   align-items: center;
   margin: 2vh 2vw;
   width: 6vw;
