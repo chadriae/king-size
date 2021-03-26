@@ -14,7 +14,7 @@ class Repairer extends Model
      */
     protected $fillable = [
         'name',
-        'email'
+        'specialties'
     ];
 
     protected $table = 'users';
@@ -23,6 +23,11 @@ class Repairer extends Model
 
     public function specialties()
     {
-        return $this->hasOne(Specialtie::class, 'user_id');
+        return $this->hasOne(Specialtie::class, 'user_id')->latest();
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'user_id')->latest();
     }
 }

@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
+
 class Specialtie extends Model
 {
     use HasFactory;
@@ -21,8 +24,7 @@ class Specialtie extends Model
 
     public function user()
     {
-        $specialties = Specialtie::all();
-        return $specialties->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
 
