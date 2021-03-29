@@ -19,11 +19,9 @@
                         </ul>
                     </div>
                     @endif
-                    <span class="font-bold">Current specialties: </span>
-                    {{  !empty($specialties->specialties) ? $specialties->specialties : 'None' }}
+
                     <form method="POST" action=" {{ route('specialties.store') }}">
                         @csrf
-
                         <div class="leading-10 p-6 bg-white border-b border-gray-200">
                             <span class="font-bold">Categories</span>
                             <br>
@@ -50,7 +48,6 @@
                                 </span>
                             </label>
                         </div>
-
                         <div class="leading-10 p-6 bg-white border-b border-gray-200">
                             <span class="font-bold">Specialties</span>
                             <br>

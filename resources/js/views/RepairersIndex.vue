@@ -29,13 +29,10 @@ export default {
     data() {
     return {
         loading: false,
-        repairers: null,
         error: null,
     };
     },
-
 }
-
 </script>
 
 <style scoped>

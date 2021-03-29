@@ -24,3 +24,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/repairers', [RepairerController::class, 'get']);
+
+Route::get('/categories', [RepairerController::class, 'get']);

@@ -28,8 +28,8 @@ class SpecialtieController extends Controller
     {
         $data = $request->input();
         $data['user_id'] = Auth::id();
-        $data['categories'] = implode(", ", $data['categories']);
-        $data['specialties'] = implode(", ", $data['specialties']);
+        $data['categories'] = implode(",", $data['categories']);
+        $data['specialties'] = implode(",", $data['specialties']);
         Specialtie::create($data);
 
         return back()->with('success', "Info updated successfully.");

@@ -7,20 +7,21 @@
                 </div>
                 <!-- card-content -->
                 <div class="px-6 py-4">
-                    <h2 class="mb-2 font-black">{{ repairer.firstname }} {{ repairer.lastname }}</h2>
+                    <h2 class="mb-2 font-black">{{  repairer.firstname }} {{ repairer.lastname }}</h2>
                     <p class="text-gray-500">based in {{ repairer.address.locality }}</p><br>
                     <p class="mb-4">Categories:
-                    <span v-for="categorie in repairer.specialties.categories.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-yellow-200 rounded-lg">#{{ categorie }}</span>
+                    <span v-for="categorie in repairer.specialties.categories.split(',')" :categorie="categorie" class="mr-2 p-1 bg-yellow-200 rounded-lg leading-9">#{{ categorie }}</span>
+                    <!-- <Categories v-for="categorie in repairer.specialties.categories.split(',')" :categorie="categorie"></Categories> -->
                     </p>
                     <p class="mb-4">Specialties:
-                    <span v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg">#{{ specialtie }}</span>
+                    <span v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg leading-9">#{{ specialtie }}</span>
+                    <!-- <Specialties /> -->
                     </p>
-                    <!-- <Specialties v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie"></Specialties> -->
                     <!-- button -->
                     <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
                     Contact me
                     </button>   
-                </div>
+            </div>
             </div>
         </section>
     </div>
@@ -28,20 +29,21 @@
 
 <script>
 import axios from 'axios';
-// import Specialties from './Specialties.vue';
+import Specialties from './Specialties.vue';
+import Categories from './Categories.vue';
 
 export default {
     name: 'RepairersIndex',
-    // components: Specialties,
+    components: {
+    Specialties,
+    Categories
+    },
     data() {
         return {
             loading: false,
             repairers: null,
             error: null,
         };
-    },
-    created() {
-        this.fetchData();
     },
     methods: {
         fetchData() {
@@ -50,12 +52,16 @@ export default {
             axios
                 .get('/api/repairers')
                 .then(response => {
+                    console.log(response.data);
                     this.loading = false;
                     this.repairers = response.data;
-                    this.specialties = response.data.specialties;
                 });
         }
-    }
+    },
+    created() {
+          this.fetchData();
+    },
+
 }
 </script>
 
