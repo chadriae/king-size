@@ -1,20 +1,20 @@
 <template>
-This is the about page.
-<Authors />
+  <div class="about">
+    This is the about page.
+    <Authors />
+  </div>
 </template>
 
 <script>
-import Authors from '../components/Authors.vue'
+import Authors from "../components/Authors.vue";
 
 export default {
-  name: 'About',
+  name: "About",
   components: {
-    Authors
-  }
-}
+    Authors,
+  },
+};
 </script>
 
 <style scoped>
-
-
 </style>

@@ -2,7 +2,7 @@
   <Navbar />
 
   <div id="root">
-    <transition name="view" appear enter-active-class="animated zoomInRight" leave-active-class="animated zoomOutLeft">
+    <transition enter-active-class="animate__animated animate__slideInUp" leave-active-class="animate__animated animate__slideOutDown">
       <router-view />
     </transition>
   </div>
