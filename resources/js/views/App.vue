@@ -22,8 +22,17 @@ export default {
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
+  url(../../../public/fonts/Montserrat-Extrabold.ttf) format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
   url(../../../public/fonts/Montserrat-Regular.ttf) format("truetype");
 }
+
+
 @font-face {
   font-family: "MontAlternate";
   src: local("MontAlternate"),
