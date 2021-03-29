@@ -3,11 +3,14 @@
     <div class="brandName"><h1>chained</h1></div>
 
     <div class="socials">
-      <img src="../../../public/img/facebookIcon.png" alt="" />
+      <a href="#"><img src="../../../public/img/facebookIcon.png" alt="" /></a>
+      
       <!-- <p class="bullet">○</p> -->
-      <img src="../../../public/img/instagramIcon.png" alt="" />
+      <a href=""><img src="../../../public/img/instagramIcon.png" alt="" /></a>
+      
       <!-- <p class="bullet">○</p> -->
-      <img src="../../../public/img/twitterIcon.png" alt="" />
+      <a href=""><img src="../../../public/img/twitterIcon.png" alt="" /></a>
+      
     </div>
     <div class="tou">
       <ul>

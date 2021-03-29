@@ -43,8 +43,12 @@ export default {
   margin: 0;
   padding: 0;
 }
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
+  min-height: 100%;
 }
 </style>
