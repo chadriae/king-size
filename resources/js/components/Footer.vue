@@ -62,6 +62,7 @@ export default {
   display: flex;
   justify-content: center;
   font-size: 1.7vh;
+  margin-top: 1vh;
 }
 .tou ul {
   display: flex;
