@@ -61,6 +61,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 14vh;
 }
 .brandLogo {
   height: 8vh;
@@ -85,7 +86,7 @@ width: 8vh;
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   color: #fff;
   font-weight: bold;
-  font-size: 10vh;
+  font-size: 9vh;
 }
 #navLinks {
   display: flex;

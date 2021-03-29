@@ -66,7 +66,10 @@ html {
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: 14vh 0 0 0;
   min-height: 100%;
+}
+#nav {
+  margin-top: -14vh;
 }
 </style>
