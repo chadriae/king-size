@@ -2,10 +2,24 @@
   <Navbar />
 
   <div id="root">
-    <transition enter-active-class="animate__animated animate__slideInUp" leave-active-class="animate__animated animate__slideOutDown">
+    <router-view v-slot="{ Component }">
+      <transition
+        name="fade"
+        mode="out-in"
+        appear
+        enter-active-class="animate__animated animate__fadeIn animate__fast"
+        leave-active-class="animate__animated animate__fadeOut animate__fast"
+      >
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
+
+  <!-- <div id="root">
+    <transition name="view" appear enter-active-class="animate__animated animate__slideInUp" leave-active-class="animate__animated animate__slideOutDown">
       <router-view />
     </transition>
-  </div>
+  </div> -->
   <Footer />
 </template>
 
