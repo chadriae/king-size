@@ -28,7 +28,7 @@ export default {
   background-image: url("../../../public/img/bike-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 86vh;
+  height: 100vh;
   width: auto;
 }
 h1,

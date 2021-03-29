@@ -1,7 +1,13 @@
 <template>
   <div id="nav">
-    <div class="navLogo">
-      <router-link class="routerLi" to="/"><img src="../../../public/img/chainswhite.png" alt="" /></router-link>
+    <div class="brand">
+      <div @click="toggleName" class="brandLogo">
+        <router-link class="routerLi" to="/">
+          <img src="../../../public/img/chainswhite.png" alt="" />
+          </router-link>
+      </div>
+
+      <h1 class="brandName animate__animated animate__flipInX">chained</h1>
     </div>
     <div id="navLinks">
       <div class="navLink">
@@ -19,9 +25,18 @@
 
 <script>
 export default {
+  // methods: {
+  //   toggleName() {
+  //     this.querySelector(".brandLogo").
+
+
+  //   }
+  // }
   name: "Navbar",
 };
 </script>
+
+
 
 <style scoped>
 #nav {
@@ -33,34 +48,44 @@ export default {
   background-color: #17161b;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding: 0 8vw;
+  justify-content: space-between;
+  padding: 0 6vw;
   height: 14vh;
   /* border: 1px solid blue; */
   align-items: center;
+  position: fixed;
+  transition: 0.4s;
+  width: 100vw;
 }
-.navLogo {
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.brandLogo {
   height: 8vh;
-  width: 9vh;
+  width: 10vh;
   /* border: 1px solid red; */
-  margin: 1vh 0;
-  object-fit: fill;
+  margin: 1vh 2vw 0 0;
   padding-right: 0.5vw;
   padding-left: 0.5vw;
-  border-right: 0.3vw solid white;
+  border-right: 0.5vw solid white;
   transition: 0.6s ease;
+  object-fit: fill;
+
+
+
 }
-.navLogo:hover {
-  height: 8.5vh;
-  width: 12vh;
-  border-right: 0.3vw solid transparent;
-  transition: 0.3s ease;
-  cursor: pointer;
+.brandLogo img {
+height: 8vh;
+width: 8vh;
   
 }
-.navLogo img {
-  height: 100%;
-  width: 100%;
+.brandName {
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-weight: bold;
+  font-size: 10vh;
 }
 #navLinks {
   display: flex;
@@ -68,7 +93,7 @@ export default {
   /* border: 1px solid green; */
   margin: 1vh;
   align-content: center;
-  width: 80vw;
+  /* width: 100vw; */
   justify-content: flex-end;
   height: 12vh;
 }
