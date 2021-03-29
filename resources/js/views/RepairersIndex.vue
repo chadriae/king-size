@@ -24,8 +24,16 @@ export default {
     name: 'RepairersIndex',
     components: {
         Filter, 
-        RepairerCard
-    }
+        RepairerCard,
+    },
+    data() {
+    return {
+        loading: false,
+        repairers: null,
+        error: null,
+    };
+    },
+
 }
 
 </script>

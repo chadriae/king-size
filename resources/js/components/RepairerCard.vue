@@ -1,5 +1,4 @@
 <template>
-
     <div class="m-2 p-2 col-span-5">
         <section v-for="repairer in repairers" class="m-2 font-sans leading-normal flex" >
             <!-- card container -->
@@ -10,28 +9,34 @@
                 <div class="px-6 py-4">
                     <h2 class="mb-2 font-black">{{ repairer.firstname }} {{ repairer.lastname }}</h2>
                     <p class="text-gray-500">based in {{ repairer.address.locality }}</p><br>
-                    <p class="mb-4 text-grey-dark text-sm">Works on {{ repairer.specialties.categories }}, and is specialised in {{ repairer.specialties.specialties }}.</p>
+                    <p class="mb-4">Categories:
+                    <span v-for="categorie in repairer.specialties.categories.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-yellow-200 rounded-lg">#{{ categorie }}</span>
+                    </p>
+                    <p class="mb-4">Specialties:
+                    <span v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg">#{{ specialtie }}</span>
+                    </p>
+                    <!-- <Specialties v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie"></Specialties> -->
                     <!-- button -->
                     <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
-                    Conact me
+                    Contact me
                     </button>   
                 </div>
             </div>
         </section>
     </div>
-
 </template>
 
 <script>
 import axios from 'axios';
+// import Specialties from './Specialties.vue';
 
 export default {
     name: 'RepairersIndex',
+    // components: Specialties,
     data() {
         return {
             loading: false,
             repairers: null,
-            specialties: null,
             error: null,
         };
     },
@@ -45,9 +50,9 @@ export default {
             axios
                 .get('/api/repairers')
                 .then(response => {
-                    console.log(response);
                     this.loading = false;
                     this.repairers = response.data;
+                    this.specialties = response.data.specialties;
                 });
         }
     }
@@ -55,7 +60,4 @@ export default {
 </script>
 
 <style scoped>
-#image{
-    background-image: url('/uploads/1616421756.jpg');
-}
 </style>
