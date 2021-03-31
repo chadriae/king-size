@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import data from './RepairerCard.vue';
+
 export default {
   name: 'Filter',
   computed: {
@@ -48,24 +48,67 @@ export default {
               checked: false,
               categorie: "Electric bikes"
             },
+          ],
+          specialties: [
+            {
+              checked: false,
+              specialtie: "Flat tires"
+            },
+            {
+              checked: false,
+              specialtie: "Whole bike repair"
+            },
+            {
+              checked: false,
+              specialtie: "Small bike parts repair"
+            },
+            {
+              checked: false,
+              specialtie: "Fixing brakes"
+            },
+            {
+              checked: false,
+              specialtie: "Fixing lights"
+            },
+            {
+              checked: false,
+              specialtie: "Broken chain"
+            },
+            {
+              checked: false,
+              specialtie: "Add new parts to bikes"
+            },
           ]
         };
     },
   methods: {
-      getfilteredData: function() {
-        this.filteredData = data;
-        let filteredDataByfilters = [];
+    fetchData() {
+      this.error = this.users = null;
+      this.loading = true;
+      axios
+          .get('/api/repairers')
+          .then(response => {
+              this.repairers = response.data;
+          })
+          .catch(error => {
+          console.log(error)
+          this.error = true
+          })
+          .finally(() => this.loading = false)
+    },
+    getfilteredData: function() {
+      this.filteredData = data;
+      let filteredDataByfilters = [];
 
-        // first check if filters where selected
-        if (this.selectedFilters.length > 0) {
-          filteredDataByfilters= this.filteredData.filter(obj => this.selectedFilters.every(val => obj.categorie.indexOf(val) >= 0));
-          this.filteredData = filteredDataByfilters;
-        }
-
-        console.log("test2");
+      // first check if filters where selected
+      if (this.selectedFilters.length > 0) {
+        filteredDataByfilters= this.filteredData.filter(obj => this.selectedFilters.every(val => obj.categorie.indexOf(val) >= 0));
+        this.filteredData = filteredDataByfilters;
+      }
     }
   },
   mounted() {
+    this.fetchData();
     this.getfilteredData();
   }
 }

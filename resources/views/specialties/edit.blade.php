@@ -83,12 +83,6 @@
                             </label>
                             <label :value="__('Specialties')" class="specialties">
                                 <span class="pr-4">
-                                    <input type="checkbox" name="specialties[]" value="Fixing brakes">
-                                    Fixing brakes
-                                </span>
-                            </label>
-                            <label :value="__('Specialties')" class="specialties">
-                                <span class="pr-4">
                                     <input type="checkbox" name="specialties[]" value="Broken chain">
                                     Broken chain
                                 </span>

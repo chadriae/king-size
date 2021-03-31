@@ -10,58 +10,23 @@
                     <h2 class="mb-2 font-black">{{  repairer.firstname }} {{ repairer.lastname }}</h2>
                     <p class="text-gray-500">based in {{ repairer.address.locality }}</p><br>
                     <p class="mb-4">Categories:
-                    <span v-for="categorie in repairer.specialties.categories.split(',')" :categorie="categorie" class="mr-2 p-1 bg-yellow-200 rounded-lg leading-9">#{{ categorie }}</span>
-                    <!-- <Categories v-for="categorie in repairer.specialties.categories.split(',')" :categorie="categorie"></Categories> -->
+                    <span v-for="categorie in repairer.specialties.categories" :categorie="categorie" class="mr-2 p-1 bg-yellow-200 rounded-lg leading-9">#{{ categorie }}</span>
                     </p>
                     <p class="mb-4">Specialties:
-                    <span v-for="specialtie in repairer.specialties.specialties.split(',')" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg leading-9">#{{ specialtie }}</span>
-                    <!-- <Specialties /> -->
+                    <span v-for="specialtie in repairer.specialties.specialties" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg leading-9">#{{ specialtie }}</span>
                     </p>
                     <!-- button -->
                     <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
                     Contact me
                     </button>   
-            </div>
+                </div>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Specialties from './Specialties.vue';
-import Categories from './Categories.vue';
-
 export default {
-    name: 'RepairersIndex',
-    components: {
-    Specialties,
-    Categories
-    },
-    data() {
-        return {
-            loading: false,
-            repairers: null,
-            error: null,
-        };
-    },
-    methods: {
-        fetchData() {
-            this.error = this.users = null;
-            this.loading = true;
-            axios
-                .get('/api/repairers')
-                .then(response => {
-                    console.log(response.data);
-                    this.loading = false;
-                    this.repairers = response.data;
-                });
-        }
-    },
-    created() {
-          this.fetchData();
-    },
-
 }
 </script>
 
