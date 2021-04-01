@@ -1,8 +1,8 @@
 <template>
     <div class="m-2 p-2 col-span-5">
-        <section v-for="repairer in repairers" class="m-2 font-sans leading-normal flex" >
+        <section v-for="(repairer, index) in filteredData" class="m-2 font-sans leading-normal flex" >
             <!-- card container -->
-            <div class="shadow-lg rounded overflow-hidden m-4 sm:flex w-full border" id="card">
+            <div :key="index" :repairer="repairer" class="shadow-lg rounded overflow-hidden m-4 sm:flex w-full border" id="card">
                 <div class="h-48 sm:h-auto sm:w-48 md:w-64 flex-none bg-cover bg-center rounded rounded-t sm:rounded sm:rounded-l text-center overflow-hidden" id="image">
                 </div>
                 <!-- card-content -->
@@ -27,6 +27,12 @@
 
 <script>
 export default {
+    props: {
+        filteredData: {
+            type: Array,
+            required: true,
+        },
+    },
 }
 </script>
 

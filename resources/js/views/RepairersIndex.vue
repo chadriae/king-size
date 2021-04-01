@@ -21,131 +21,92 @@
                 </div>  
             <br>
             Specialties:
-                <!-- <div v-for="(specialtie, index) in specialties">
+                <div v-for="(specialtie, index) in specialties">
                 <input type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredData">
                     <label>
-                    {{ categorie.categorie }}
+                    {{ specialtie.specialtie }}
                     </label>
-                </div>   -->
+                </div>  
             </div>
         </aside>
-        <!-- <template v-for="repairer in filteredData"> -->
-        <div class="m-2 p-2 col-span-5">
-            <section v-for="(repairer, index) in filteredData" class="m-2 font-sans leading-normal flex" >
-                <!-- card container -->
-                <div :key="index" :item="repairer" class="shadow-lg rounded overflow-hidden m-4 sm:flex w-full border" id="card">
-                    <div class="h-48 sm:h-auto sm:w-48 md:w-64 flex-none bg-cover bg-center rounded rounded-t sm:rounded sm:rounded-l text-center overflow-hidden" id="image">
-                    </div>
-                    <!-- card-content -->
-                    <div class="px-6 py-4">
-                        <h2 class="mb-2 font-black">{{  repairer.firstname }} {{ repairer.lastname }}</h2>
-                        <p class="text-gray-500">based in {{ repairer.address.locality }}</p><br>
-                        <p class="mb-4">Categories:
-                        <span v-for="categorie in repairer.specialties.categories" :categorie="categorie" class="mr-2 p-1 bg-yellow-200 rounded-lg leading-9">#{{ categorie }}</span>
-                        </p>
-                        <p class="mb-4">Specialties:
-                        <span v-for="specialtie in repairer.specialties.specialties" :specialtie="specialtie" class="mr-2 p-1 bg-green-200 rounded-lg leading-9">#{{ specialtie }}</span>
-                        </p>
-                        <!-- button -->
-                        <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
-                        Contact me
-                        </button>   
-                    </div>
-                </div>
-            </section>
-        </div>
-            <!-- </template> -->
+        <RepairerCard  :filteredData="filteredData" />
     </div>
 </div>
 </template>
 
 <script>
 // import Filter from '../components/Filter.vue';
-// import RepairerCard from '../components/RepairerCard.vue';
-import data from '../data.js';
+import RepairerCard from '../components/RepairerCard.vue';
+import specialties from '../data/specialties.js';
+import categories from '../data/categories.js';
 
 export default {
     name: 'RepairersIndex',
+    components: {
+        RepairerCard
+    },
     computed: {
         selectedFilters: function() {
             let filters = [];
-            let checkedFiters = this.categories.filter(obj => obj.checked);
-            checkedFiters.forEach(element => {
+
+            // categorie filters
+            let checkedCategories = this.categories.filter(obj => obj.checked);
+            checkedCategories.forEach(element => {
                 filters.push(element.categorie);
             });
+
+            // specialtie filters
+            let checkedSpecialties = this.specialties.filter(obj => obj.checked);
+            checkedSpecialties.forEach(element => {
+                filters.push(element.specialtie);
+            });
+
+            console.log(filters);
             return filters;
             },
     },
     data() {
         return {
         loading: false,
-        repairers: null,
         error: null,
+        repairers: [],
         filteredData: [],
-        categories: [
-            {
-                checked: false,
-                categorie: "City bikes"
-            },
-            {
-                checked: false,
-                categorie: "Mountain bikes"
-            },
-            {
-                checked: false,
-                categorie: "Race bikes"
-            },
-            {
-                checked: false,
-                categorie: "Electric bikes"
-            },
-        ],
-        // specialties: [
-        //     {
-        //         checked: false,
-        //         specialtie: "Flat tires"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Whole bike repair"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Small bike parts repair"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Fixing brakes"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Fixing lights"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Broken chain"
-        //     },
-        //     {
-        //         checked: false,
-        //         specialtie: "Add new parts to bikes"
-        //     },
-        // ]
+        categories: categories,
+        specialties: specialties,
         };
     },
   methods: {
+    fetchData() {
+        this.error = null;
+        this.loading = true;
+
+        axios
+            .get('/api/repairers')
+            .then(response => {
+                this.repairers = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+            this.error = true
+            })
+            .finally(() => this.loading = false)
+    },
+
     getfilteredData() {
-        this.filteredData = data;
+        this.filteredData = this.repairers;
+        console.log(this.filteredData);
         let filteredDataByfilters = [];
 
         // first check if filters where selected
         if (this.selectedFilters.length > 0) {
-            console.log(this.selectedFilters);
 			filteredDataByfilters = this.filteredData.filter(obj => this.selectedFilters.every(val => obj.specialties['categories'].indexOf(val) >= 0));
+            filteredDataByfilters = this.filteredData.filter(obj => this.selectedFilters.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
             this.filteredData = filteredDataByfilters;
         }
     }
   },
   mounted() {
+    this.fetchData();
     this.getfilteredData();
   }
 }

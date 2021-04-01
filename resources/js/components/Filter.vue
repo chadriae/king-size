@@ -1,14 +1,22 @@
 <template>
   <aside class="row-span-6 col-span-1  p-2 border-r-2 h-screen" id="filter">
-    <div id="checkboxes">
+      <div id="checkboxes">
       Categories:
-        <div v-for="(categorie, index) in categories">
-          <input type="checkbox" v-on:change="getfilteredData">
-            <label>
-              {{ categorie.categorie }}
-            </label>
-        </div>  
-    </div>
+          <div v-for="(categorie,index) in categories" :key="index">
+              <input type="checkbox" v-model="categorie.checked" v-on:change="getfilteredData">
+                  <label>
+                  {{ categorie.categorie }}
+                  </label>
+          </div>  
+      <br>
+      Specialties:
+          <div v-for="(specialtie, index) in specialties">
+          <input type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredData">
+              <label>
+              {{ specialtie.specialtie }}
+              </label>
+          </div>  
+      </div>
   </aside>
 </template>
 
@@ -16,16 +24,21 @@
 
 export default {
   name: 'Filter',
+  props: {
+      repairers: {
+          type: Array,
+          required: true,
+      },
+  },
   computed: {
     selectedFilters: function() {
       let filters = [];
       let checkedFiters = this.categories.filter(obj => obj.checked);
       checkedFiters.forEach(element => {
-        categories.push(element.value);
+        filters.push(element.categorie);
       });
-      console.log('test');
       return filters;
-    }
+    },
   },
   data() {
         return {
@@ -82,33 +95,20 @@ export default {
         };
     },
   methods: {
-    fetchData() {
-      this.error = this.users = null;
-      this.loading = true;
-      axios
-          .get('/api/repairers')
-          .then(response => {
-              this.repairers = response.data;
-          })
-          .catch(error => {
-          console.log(error)
-          this.error = true
-          })
-          .finally(() => this.loading = false)
-    },
     getfilteredData: function() {
-      this.filteredData = data;
-      let filteredDataByfilters = [];
+        this.filteredData = this.repairers;
+        console.log(this.repairers);
+        let filteredDataByfilters = [];
 
-      // first check if filters where selected
-      if (this.selectedFilters.length > 0) {
-        filteredDataByfilters= this.filteredData.filter(obj => this.selectedFilters.every(val => obj.categorie.indexOf(val) >= 0));
-        this.filteredData = filteredDataByfilters;
-      }
+        // first check if filters where selected
+        if (this.selectedFilters.length > 0) {
+          console.log(this.selectedFilters);
+          filteredDataByfilters = this.filteredData.filter(obj => this.selectedFilters.every(val => obj.specialties['categories'].indexOf(val) >= 0));
+          this.filteredData = filteredDataByfilters;
+        }
     }
   },
   mounted() {
-    this.fetchData();
     this.getfilteredData();
   }
 }
