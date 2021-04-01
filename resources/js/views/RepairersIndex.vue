@@ -15,17 +15,24 @@
         <aside class="md:row-span-6 md:col-span-1 p-2 border-r-1 bg-gray-100" id="filter">
             <div id="checkboxes">
             <strong>Categories:</strong>
-                <div class="p-4 md:flex inline-block" v-for="(categorie,index) in categories" :key="index">
+                <div class="p-4 md:flex inline-block" v-for="categorie in categories">
                     <input class="mr-2" type="checkbox" v-model="categorie.checked" v-on:change="getfilteredDataByCategories();">
                     <label>{{ categorie.categorie }}</label>
                 </div>  
             <br>
             <strong>Specialties:</strong>
-                <div class="p-4 md:flex inline-block" v-for="(specialtie, index) in specialties">
+                <div class="p-4 md:flex inline-block" v-for="specialtie in specialties">
                     <input class="mr-2" type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredDataBySpecialties();">
                     <label>{{ specialtie.specialtie }}</label>
                 </div>  
+            <br>
+            <strong>Places:</strong>
+                <div class="p-4 md:flex inline-block" v-for="places in repairers">
+                    <input  v-model="places.checked"  class="mr-2" type="checkbox" v-on:change="getfilteredDataByPlaces();">
+                    <label>{{ places.address.locality }}</label>
+                </div>  
             </div>
+
         </aside>
         <RepairerCard  :filteredData="filteredData" />
     </div>
@@ -60,6 +67,16 @@ export default {
             });
             return specialties;
             },
+        selectedPlaces: function() {
+            let places = [];
+            let checkedPlaces = this.places.filter(obj => obj.checked);
+            checkedPlaces.forEach(element => {
+                places.push(element.places);
+            });
+            console.log(places)
+            return places;
+            },
+
     },
     data() {
         return {
@@ -67,6 +84,7 @@ export default {
         error: null,
         repairers: [],
         filteredData: [],
+        places: [],
         categories: categories,
         specialties: specialties,
         };
@@ -122,11 +140,21 @@ export default {
             this.filteredData = filteredDataBySpecialties;
         }
     },
+    getfilteredDataByPlaces(){
+        this.filteredData = this.repairers;
+        let filteredDataByPlaces = [];
+        // first check if filters where selected
+        if (this.selectedPlaces.length > 0) {
+            filteredDataByPlaces = this.filteredData.filter(obj => this.selectedPlaces.every(val => obj.address['locality'].indexOf(val) >= 0));
+            this.filteredData = filteredDataByPlaces;
+        }
+    }
   },
   mounted() {
     this.fetchData();
     this.getfilteredDataByCategories();
     this.getfilteredDataBySpecialties();
+    this.getfilteredDataByPlaces();
   }
 }
 </script>
