@@ -10,18 +10,18 @@
     </div>
 
     <!-- Container body layout -->
-    <div class="grid grid-rows-6 grid-cols-6">
+    <div class="grid md:grid-rows-6 md:grid-cols-6">
         <!-- Checkboxes sidebar -->
-        <aside class="row-span-6 col-span-1 p-2 border-r-1 bg-gray-100" id="filter">
+        <aside class="md:row-span-6 md:col-span-1 p-2 border-r-1 bg-gray-100" id="filter">
             <div id="checkboxes">
             <strong>Categories:</strong>
-                <div class="p-4" v-for="(categorie,index) in categories" :key="index">
+                <div class="p-4 md:flex inline-block" v-for="(categorie,index) in categories" :key="index">
                     <input class="mr-2" type="checkbox" v-model="categorie.checked" v-on:change="getfilteredDataByCategories();">
                     <label>{{ categorie.categorie }}</label>
                 </div>  
             <br>
             <strong>Specialties:</strong>
-                <div class="p-4" v-for="(specialtie, index) in specialties">
+                <div class="p-4 md:flex inline-block" v-for="(specialtie, index) in specialties">
                     <input class="mr-2" type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredDataBySpecialties();">
                     <label>{{ specialtie.specialtie }}</label>
                 </div>  
