@@ -7,7 +7,6 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller
 {
@@ -24,9 +23,7 @@ class ImageController extends Controller
         ]);
 
         $user_id = Auth::id();
-
         $image = time() . '.' . $request->image->extension();
-
         $request->image->move(public_path('uploads'), $image);
 
         $image = Image::create(["image_name" => $image, "user_id" => $user_id]);

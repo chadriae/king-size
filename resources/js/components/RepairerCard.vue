@@ -1,9 +1,10 @@
 <template>
-    <div class="m-2 p-2 col-span-5">
-        <section v-for="(repairer, index) in filteredData" class="m-2 font-sans leading-normal flex" >
+    <div v-for="(repairer, index) in filteredData" class="m-4 p-2 col-span-5">
+        <section class="font-sans leading-normal flex bg-gray-100" >
             <!-- card container -->
-            <div :key="index" :repairer="repairer" class="shadow-lg rounded overflow-hidden m-4 sm:flex w-full border" id="card">
-                <div class="h-48 sm:h-auto sm:w-48 md:w-64 flex-none bg-cover bg-center rounded rounded-t sm:rounded sm:rounded-l text-center overflow-hidden" id="image">
+            <div :key="index" :repairer="repairer" class="overflow-hidden p-4 sm:flex w-full" id="card">
+                <div class="rounded-b-xl md:flex md:items-center" id="image" v-if="repairer.profile_pic.image_name">
+                    <img class="w-48 h-48 rounded-full md:mr-4 ml-4" :src="'/uploads/'+repairer.profile_pic.image_name">
                 </div>
                 <!-- card-content -->
                 <div class="px-6 py-4">

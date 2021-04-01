@@ -11,7 +11,8 @@
 
     <!-- Container body layout -->
     <div class="grid grid-rows-6 grid-cols-6">
-        <aside class="row-span-6 col-span-1  p-2 border-r-2 h-screen" id="filter">
+        <!-- Checkboxes sidebar -->
+        <aside class="row-span-6 col-span-1 p-2 border-r-1 bg-gray-100" id="filter">
             <div id="checkboxes">
             <strong>Categories:</strong>
                 <div class="p-4" v-for="(categorie,index) in categories" :key="index">
@@ -59,7 +60,6 @@ export default {
             });
             return specialties;
             },
-
     },
     data() {
         return {
