@@ -5,27 +5,24 @@
     </div>
 
     <div v-if="error" class="error">
-        {{ error }}
+        <h1>{{ error.title }}</h1>
+        {{ error.message }}
     </div>
 
     <!-- Container body layout -->
     <div class="grid grid-rows-6 grid-cols-6">
         <aside class="row-span-6 col-span-1  p-2 border-r-2 h-screen" id="filter">
             <div id="checkboxes">
-            Categories:
-                <div v-for="(categorie,index) in categories" :key="index">
-                    <input type="checkbox" v-model="categorie.checked" v-on:change="getfilteredData">
-                        <label>
-                        {{ categorie.categorie }}
-                        </label>
+            <strong>Categories:</strong>
+                <div class="p-4" v-for="(categorie,index) in categories" :key="index">
+                    <input class="mr-2" type="checkbox" v-model="categorie.checked" v-on:change="getfilteredDataByCategories();">
+                    <label>{{ categorie.categorie }}</label>
                 </div>  
             <br>
-            Specialties:
-                <div v-for="(specialtie, index) in specialties">
-                <input type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredData">
-                    <label>
-                    {{ specialtie.specialtie }}
-                    </label>
+            <strong>Specialties:</strong>
+                <div class="p-4" v-for="(specialtie, index) in specialties">
+                    <input class="mr-2" type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredDataBySpecialties();">
+                    <label>{{ specialtie.specialtie }}</label>
                 </div>  
             </div>
         </aside>
@@ -46,24 +43,23 @@ export default {
         RepairerCard
     },
     computed: {
-        selectedFilters: function() {
-            let filters = [];
-
-            // categorie filters
+        selectedCategories: function() {
+            let categories = [];
             let checkedCategories = this.categories.filter(obj => obj.checked);
             checkedCategories.forEach(element => {
-                filters.push(element.categorie);
+                categories.push(element.categorie);
             });
-
-            // specialtie filters
+            return categories;
+            },
+        selectedSpecialties: function() {
+            let specialties = [];
             let checkedSpecialties = this.specialties.filter(obj => obj.checked);
             checkedSpecialties.forEach(element => {
-                filters.push(element.specialtie);
+                specialties.push(element.specialtie);
             });
-
-            console.log(filters);
-            return filters;
+            return specialties;
             },
+
     },
     data() {
         return {
@@ -76,38 +72,61 @@ export default {
         };
     },
   methods: {
-    fetchData() {
-        this.error = null;
-        this.loading = true;
+    async fetchData() {
+        try {
+            this.error = null;
+            this.loading = true;
 
-        axios
-            .get('/api/repairers')
-            .then(response => {
-                this.repairers = response.data;
-            })
-            .catch(error => {
-                console.log(error);
-            this.error = true
-            })
-            .finally(() => this.loading = false)
-    },
-
-    getfilteredData() {
-        this.filteredData = this.repairers;
-        console.log(this.filteredData);
-        let filteredDataByfilters = [];
-
-        // first check if filters where selected
-        if (this.selectedFilters.length > 0) {
-			filteredDataByfilters = this.filteredData.filter(obj => this.selectedFilters.every(val => obj.specialties['categories'].indexOf(val) >= 0));
-            filteredDataByfilters = this.filteredData.filter(obj => this.selectedFilters.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
-            this.filteredData = filteredDataByfilters;
+            const url = '/api/repairers'
+            const response = await axios.get(url)
+            this.repairers = response.data
+        } 
+        catch (err) {
+        if (err.response) {
+          // client received an error response (5xx, 4xx)
+          this.error = {
+            title: "Server Response",
+            message: err.message,
+          }
+        } else if (err.request) {
+          // client never received a response, or request never left
+          this.error = {
+            title: "Unable to Reach Server",
+            message: err.message,
+          }
+        } else {
+          // There's probably an error in your code
+          this.error = {
+            title: "Application Error",
+            message: err.message,
+          }
         }
-    }
+      }
+      this.loading = false
+    },
+    getfilteredDataByCategories() {
+        this.filteredData = this.repairers;
+        let filteredDataByCategories = [];
+        // first check if filters where selected
+        if (this.selectedCategories.length > 0) {
+            filteredDataByCategories = this.filteredData.filter(obj => this.selectedCategories.every(val => obj.specialties['categories'].indexOf(val) >= 0));
+            this.filteredData = filteredDataByCategories;
+        }
+    },
+    getfilteredDataBySpecialties() {
+        this.filteredData = this.repairers;
+        let filteredDataBySpecialties = [];
+        // first check if filters where selected
+        if (this.selectedSpecialties.length > 0) {
+            filteredDataBySpecialties = this.filteredData.filter(obj => this.selectedSpecialties.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
+            this.filteredData = filteredDataBySpecialties;
+        }
+    },
   },
   mounted() {
     this.fetchData();
-    this.getfilteredData();
+    this.getfilteredDataByCategories();
+    this.getfilteredDataBySpecialties();
   }
 }
 </script>
