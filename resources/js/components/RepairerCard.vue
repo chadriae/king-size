@@ -4,7 +4,7 @@
             <!-- card container -->
             <div :key="index" :repairer="repairer" class="overflow-hidden p-4 sm:flex w-full" id="card">
                 <div class="rounded-b-xl md:flex md:items-center" id="image" v-if="repairer.profile_pic.image_name">
-                    <img class="w-48 h-48 rounded-full md:mr-4 ml-4" :src="'/uploads/'+repairer.profile_pic.image_name">
+                    <img class="w-48 h-48 rounded-full md:mr-4 ml-4" :src="'/uploads/' + repairer.profile_pic.image_name">
                 </div>
                 <!-- card-content -->
                 <div class="px-6 py-4">
@@ -18,7 +18,7 @@
                     </p>
                     <!-- button -->
                     <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
-                    Contact me
+                        <a :href="'mailto:' + repairer.email">Contact me</a>
                     </button>   
                 </div>
             </div>
