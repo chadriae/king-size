@@ -27,9 +27,9 @@
                 </div>  
             <br>
             <strong>Places:</strong>
-                <div class="p-4 md:flex inline-block" v-for="places in repairers">
-                    <input  v-model="places.checked"  class="mr-2" type="checkbox" v-on:change="getfilteredDataByPlaces();">
-                    <label>{{ places.address.locality }}</label>
+                <div class="p-4 md:flex inline-block" v-for="place in places">
+                    <input  v-model="place.checked"  class="mr-2" type="checkbox" v-on:change="getfilteredDataByPlaces();">
+                    <label>{{ place.place }}</label>
                 </div>  
             </div>
 
@@ -71,9 +71,8 @@ export default {
             let places = [];
             let checkedPlaces = this.places.filter(obj => obj.checked);
             checkedPlaces.forEach(element => {
-                places.push(element.places);
+                places.push(element.place);
             });
-            console.log(places)
             return places;
             },
 
@@ -97,7 +96,12 @@ export default {
 
             const url = '/api/repairers'
             const response = await axios.get(url)
+            let data = response.data
+
             this.repairers = response.data
+            this.places = data.map(post => ({
+                place: post.address.locality,
+            }))
         } 
         catch (err) {
         if (err.response) {
@@ -141,6 +145,8 @@ export default {
         }
     },
     getfilteredDataByPlaces(){
+        console.log(this.selectedPlaces);
+
         this.filteredData = this.repairers;
         let filteredDataByPlaces = [];
         // first check if filters where selected
