@@ -21,6 +21,8 @@ class CreateAddressesTable extends Migration
             $table->string('locality');
             $table->string('postcode');
             $table->string('country');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }

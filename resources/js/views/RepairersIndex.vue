@@ -14,19 +14,19 @@
         <!-- Checkboxes sidebar -->
         <aside class="md:row-span-6 md:col-span-1 p-2 border-r-1 bg-gray-100" id="filter">
             <div id="checkboxes">
-            <strong>Categories:</strong>
+            <strong>Categories</strong>
                 <div class="p-4 md:flex inline-block" v-for="categorie in categories">
                     <input class="mr-2" type="checkbox" v-model="categorie.checked" v-on:change="getfilteredDataByCategories();">
                     <label>{{ categorie.categorie }}</label>
                 </div>  
             <br>
-            <strong>Specialties:</strong>
+            <strong>Specialties</strong>
                 <div class="p-4 md:flex inline-block" v-for="specialtie in specialties">
                     <input class="mr-2" type="checkbox" v-model="specialtie.checked" v-on:change="getfilteredDataBySpecialties();">
                     <label>{{ specialtie.specialtie }}</label>
                 </div>  
             <br>
-            <strong>Places:</strong>
+            <strong>Places</strong>
                 <div class="p-4 md:flex inline-block" v-for="place in places">
                     <input  v-model="place.checked"  class="mr-2" type="checkbox" v-on:change="getfilteredDataByPlaces();">
                     <label>{{ place.place }}</label>
@@ -75,7 +75,6 @@ export default {
             });
             return places;
             },
-
     },
     data() {
         return {
@@ -145,8 +144,6 @@ export default {
         }
     },
     getfilteredDataByPlaces(){
-        console.log(this.selectedPlaces);
-
         this.filteredData = this.repairers;
         let filteredDataByPlaces = [];
         // first check if filters where selected

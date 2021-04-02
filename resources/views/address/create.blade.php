@@ -3,26 +3,20 @@
 ?>
 
 <x-app-layout>
-
     <script>
-    // This sample uses the Places Autocomplete widget to:
-    // 1. Help the user select a place
-    // 2. Retrieve the address components associated with that place
-    // 3. Populate the form fields with those address components.
-    // This sample requires the Places library, Maps JavaScript API.
-    // Include the libraries=places parameter when you first load the API.
-    // For example: <script
-    // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
     let autocomplete;
     let address1Field;
     let address2Field;
     let postalField;
-
-
+    let latitudeField;
+    let langitudeField;
+    
     function initAutocomplete() {
         address1Field = document.querySelector("#ship_address");
         address2Field = document.querySelector("#address2");
         postalField = document.querySelector("#postcode");
+        latitudeField = document.querySelector("#latitude");
+        longitudeField = document.querySelector("#longitude");
         
         autocomplete = new google.maps.places.Autocomplete(address1Field, {
         componentRestrictions: { country: ["bel"] },
@@ -30,8 +24,6 @@
         types: ["address"],
         });
         address1Field.focus();
-        // When the user selects an address from the drop-down, populate the
-        // address fields in the form.
         autocomplete.addListener("place_changed", fillInAddress);
     }
 
@@ -40,11 +32,9 @@
         const place = autocomplete.getPlace();
         let address1 = "";
         let postcode = "";
+        let latitude = "";
+        let longitude = "";
 
-        // Get each component of the address from the place details,
-        // and then fill-in the corresponding field on the form.
-        // place.address_components are google.maps.GeocoderAddressComponent objects
-        // which are documented at http://goo.gle/3l5i5Mr
         for (const component of place.address_components) {
             const componentType = component.types[0];
 
@@ -78,11 +68,15 @@
                 break;
             }
         }
+
+        latitude = place.geometry['location'].lat();
+        longitude = place.geometry['location'].lng();
+
         address1Field.value = address1;
         postalField.value = postcode;
-        // After filling the form with address components from the Autocomplete
-        // prediction, set cursor focus on the second address line to encourage
-        // entry of subpremise information such as apartment, unit, or floor number.
+        latitudeField.value = latitude;
+        longitudeField.value = longitude;
+
         address2Field.focus();
     }
     </script>  
@@ -142,6 +136,14 @@
                                 <span class="form-label font-bold">Country/Region*</span>
                                 <input id="country" name="country" class="google-map-input" required />
                             </label>
+                            <label class="full-field hidden">
+                                <span class="form-label font-bold">Latitude</span>
+                                <input id="latitude" name="latitude" class="google-map-input" />
+                            </label>
+                            <label class="full-field hidden">
+                                <span class="form-label font-bold">Longitude</span>
+                                <input id="longitude" name="longitude" class="google-map-input" />
+                            </label>
                         </div>
 
                         @if(Session::has('success'))
@@ -176,5 +178,4 @@
             </div>
         </div>
     </div>
-
 </x-app-layout>
