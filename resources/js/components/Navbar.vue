@@ -19,6 +19,9 @@
       <div class="navLink">
         <router-link class="routerLi" to="/repairers">Repairers </router-link>
       </div>
+      <div class="navLink">
+        <router-link class="routerLi" to="/map">Map </router-link>
+      </div>
     </div>
   </div>
 </template>

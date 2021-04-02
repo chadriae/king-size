@@ -887,6 +887,13 @@
   dependencies:
     "purgecss" "^3.1.3"
 
+"@googlemaps/js-api-loader@^1.11.1":
+  "integrity" "sha512-MUX04/b5dBIqi2jl2/89FS48gWPm5cgUwO4dDffIoylKv/e7HP9gJvpKqk1/JMIYPX2y/qO2TqFteRAWmNU1BA=="
+  "resolved" "https://registry.npmjs.org/@googlemaps/js-api-loader/-/js-api-loader-1.11.3.tgz"
+  "version" "1.11.3"
+  dependencies:
+    "fast-deep-equal" "^3.1.3"
+
 "@nodelib/fs.scandir@2.1.4":
   "integrity" "sha512-33g3pMJk3bg5nXbL/+CY6I2eJDzZAni49PfJnL5fghPTggPvBd/pFNSgJsdAgWptuFu7qq/ERvOYFlhvsLTCKA=="
   "resolved" "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz"
@@ -3377,7 +3384,7 @@
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz"
   "version" "2.0.1"
 
-"fast-deep-equal@^3.1.1":
+"fast-deep-equal@^3.1.1", "fast-deep-equal@^3.1.3":
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
@@ -7547,7 +7554,7 @@
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.0.5.tgz"
   "version" "4.0.5"
 
-"vue@^3.0.7":
+"vue@^3.0.7", "vue@3":
   "integrity" "sha512-8h4TikD+JabbMK9aRlBO4laG0AtNHRPHynxYgWZ9sq1YUPfzynd9Jeeb27XNyZytC7aCQRX9xe1+TQJuc181Tw=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.0.7.tgz"
   "version" "3.0.7"
@@ -7555,6 +7562,13 @@
     "@vue/compiler-dom" "3.0.7"
     "@vue/runtime-dom" "3.0.7"
     "@vue/shared" "3.0.7"
+
+"vue3-google-map@^0.7.0":
+  "integrity" "sha512-wFaoPtxvZlvC5hQFYRuii+9kCqetrGfrcXgCPOl7/MhZMT7225HFOSI5e9FSn2ZbKNzn8ubqCB1/wV7fUZPrUQ=="
+  "resolved" "https://registry.npmjs.org/vue3-google-map/-/vue3-google-map-0.7.0.tgz"
+  "version" "0.7.0"
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.11.1"
 
 "watch@^1.0.2":
   "integrity" "sha1-NApxe952Vyb6CqB9ch4BR6VR3ww="

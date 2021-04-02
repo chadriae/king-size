@@ -98,8 +98,8 @@ export default {
             let data = response.data
 
             this.repairers = response.data
-            this.places = data.map(post => ({
-                place: post.address.locality,
+            this.places = data.map(repairer => ({
+                place: repairer.address.locality,
             }))
         } 
         catch (err) {
