@@ -25,7 +25,6 @@ class Address extends Model
         'longitude' => 'float'
     ];
 
-
     public function user()
     {
         return $this->belongsTo(User::class);

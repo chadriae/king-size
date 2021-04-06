@@ -4,18 +4,28 @@
 
     <GMapMap
           :center="center"
-          :zoom="7"
+          :zoom="10"
           map-type-id="terrain"
           style="width: 100%; height: 600px"
       >
         <GMapMarker
             :key="index"
-            v-for="(m, index) in markers"
-            :position="m.position"
+            v-for="(marker, index) in markers"
+            :position="marker.position"
             :clickable="true"
-            :draggable="true"
-            @click="center=m.position"
-        />
+        >
+          <GMapInfoWindow
+            :opened="true"  
+          >
+            <strong>{{ marker.name }}</strong>
+            <p id="specialties">
+              <strong>Specialties: </strong>
+              <ul v-for="specialtie in marker.specialties">
+                <li>{{ specialtie }}</li>
+              </ul>
+            </p>
+          </GMapInfoWindow>
+        </GMapMarker>
     </GMapMap>  
   </div>
 </template>
@@ -37,7 +47,10 @@ export default {
             const response = await axios.get(url)
             let data = response.data
 
+            this.markers = response.data
             this.markers = data.map(repairer => ({
+                name: repairer.firstname + " " + repairer.lastname,
+                specialties: repairer.specialties.specialties,
                 position: { 
                   lat: repairer.address.latitude,
                   lng: repairer.address.longitude
@@ -49,14 +62,10 @@ export default {
         catch (error) {
           console.log(error)
         }
-    },
-    showMarkers(){
-      console.log(this.markers)
-    },
+    }
   },
   mounted() {
     this.fetchData()
-    this.showMarkers()
   }
 }
 </script>
