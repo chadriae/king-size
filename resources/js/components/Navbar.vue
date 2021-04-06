@@ -4,7 +4,7 @@
       <div @click="toggleName" class="brandLogo">
         <router-link class="routerLi" to="/">
           <img src="../../../public/img/chainswhite.png" alt="" />
-          </router-link>
+        </router-link>
       </div>
 
       <h1 class="brandName animate__animated animate__flipInX">chained</h1>
@@ -13,7 +13,12 @@
       <div class="navLink">
         <router-link class="routerLi" to="/"> Home </router-link>
       </div>
-      <div class="navLink">
+      <div
+        @mouseover="hovered = true"
+        @mouseleave="hover = false"
+        :class="{ white: hovered }"
+        class="navLink"
+      >
         <router-link class="routerLi" to="/about">About </router-link>
       </div>
       <div class="navLink">
@@ -25,20 +30,22 @@
       <div class="navLink">
         <span class="routerLi"><a href="/dashboard">Dashboard </a></span>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  // methods: {
+  methods: {
   //   toggleName() {
   //     this.querySelector(".brandLogo").
-
-
   //   }
-  // }
+    data() {
+      return {
+        hover: false,
+      };
+    }
+  },
   name: "Navbar",
 };
 </script>
@@ -80,14 +87,11 @@ export default {
   /* border-right: 0.5vw solid white; */
   transition: 0.6s ease;
   object-fit: fill;
-
-
-
 }
+
 .brandLogo img {
-height: 8vh;
-width: 8vh;
-  
+  height: 8vh;
+  width: 8vh;
 }
 .brandName {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
@@ -137,11 +141,15 @@ width: 8vh;
   transition: 0.4s ease;
 }
 .routerLi {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
   text-transform: uppercase;
   border-bottom: 3px solid transparent;
   margin: 2vh 0;
+}
+
+.white {
+  color: red;
 }
 /* .routerLi:hover {
   font-size: 13pt;
