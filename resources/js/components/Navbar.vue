@@ -22,6 +22,10 @@
       <div class="navLink">
         <router-link class="routerLi" to="/map">Map </router-link>
       </div>
+      <div class="navLink">
+        <span class="routerLi"><a href="/dashboard">Dashboard </a></span>
+      </div>
+
     </div>
   </div>
 </template>
