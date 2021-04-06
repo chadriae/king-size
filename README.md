@@ -2,7 +2,7 @@
 
 ## The idea :bulb:
 
-Your bike is broken again, your tire is flat and you don't have the time nor the equipment to repair it. And you don't like walking your broken bike to the nearest bike repair shop, where you have to wait a couple of days to get your bike fixed.
+> "Oh no, my bike broke again! I don't know how to fix my tire and I don't feel like bringing my bike to the bike repair shop..."
 
 Now you can look for a bike repairer in your neighborhood! Filter the repairers to your needs and get in contact. You can arrange a meeting at your home and you can get your bike fixed in no time!
 
@@ -33,6 +33,20 @@ A list of features we wanted to include:
 ### Software tools
 
 -   VSCode
--   ...
+-   Sequel Ace as a DB Manager (Mac)
+-   MAMP and XAMMP for local server
+-   GitHub
+-   Google Maps API
 
 ### Languages
+
+-   HTML
+-   CSS: custom and Tailwind
+-   Laravel php framework
+-   Vue js framework
+-   Vanilla js
+-   git
+
+## Live website :pushpin:
+
+> ... (Hopefully soon!)

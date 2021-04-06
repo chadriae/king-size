@@ -2,11 +2,12 @@
 
 <template>
   <div class="map">
-      Map page
-
+    <div class="p-4">
+      Navigation around the map to look for the repairer of your needs. 
+    </div>
     <GMapMap
           :center="center"
-          :zoom="10"
+          :zoom="12"
           map-type-id="terrain"
           style="width: 100%; height: 600px"
       >

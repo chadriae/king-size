@@ -24,7 +24,7 @@
     <div class="footerInformation">
       <p>
         Copyright © 2021 Chained <br />
-        Manten Devillé &amp; Christophe Adriaensens for Becode
+        Manten Devillé &amp; Christophe Adriaensens for BeCode
       </p>
     </div>
   </div>
