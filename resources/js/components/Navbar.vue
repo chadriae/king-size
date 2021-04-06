@@ -32,13 +32,6 @@
 
 <script>
 export default {
-  // methods: {
-  //   toggleName() {
-  //     this.querySelector(".brandLogo").
-
-
-  //   }
-  // }
   name: "Navbar",
 };
 </script>
