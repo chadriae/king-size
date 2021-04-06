@@ -2,32 +2,31 @@
   <div class="map">
       Map page
 
-      <GoogleMap
-        :api-key=key
-        style="width: 100%; height: 600px"
-        :center="center"
-        :zoom="15"
-        :markers="markers"
+    <GMapMap
+          :center="center"
+          :zoom="7"
+          map-type-id="terrain"
+          style="width: 100%; height: 600px"
       >
-    <Marker :options="{ position: center }" />
-  </GoogleMap>
+        <GMapMarker
+            :key="index"
+            v-for="(m, index) in markers"
+            :position="m.position"
+            :clickable="true"
+            :draggable="true"
+            @click="center=m.position"
+        />
+    </GMapMap>  
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { GoogleMap, Marker } from 'vue3-google-map'
 
-export default defineComponent({
-  components: { GoogleMap, Marker },
-  setup() {
-    const center = { lat: 51.054745001695125, lng: 3.72176616987 }
-    return { center }
-  },
-  
+export default { 
   data(){
     return {
-      key: process.env.MIX_GOOGLEKEY,
+      center: { lat: 51.054745001695125, lng: 3.72176616987 },
+      // key: process.env.MIX_GOOGLEKEY,
       markers: []
     }
   },
@@ -38,13 +37,14 @@ export default defineComponent({
             const response = await axios.get(url)
             let data = response.data
 
-            console.log(response.data)
-
             this.markers = data.map(repairer => ({
-                lat: repairer.address.latitude,
-                lng: repairer.address.longitude
+                position: { 
+                  lat: repairer.address.latitude,
+                  lng: repairer.address.longitude
+                }
             }))
             console.log(this.markers)
+            // return this.markers
         } 
         catch (error) {
           console.log(error)
@@ -57,10 +57,8 @@ export default defineComponent({
   mounted() {
     this.fetchData()
     this.showMarkers()
-  },
-  
-  
-})
+  }
+}
 </script>
 
 <style scoped>

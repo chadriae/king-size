@@ -23,6 +23,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
+        "@fawmi/vue-google-maps": "^0.7.12",
         "animate.css": "^4.1.1",
         "mix": "^0.0.1",
         "tailwind": "^4.0.0",

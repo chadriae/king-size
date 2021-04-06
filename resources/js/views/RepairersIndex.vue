@@ -144,6 +144,9 @@ export default {
         }
     },
     getfilteredDataByPlaces(){
+        console.log(this.places)
+        console.log(this.repairers)
+
         this.filteredData = this.repairers;
         let filteredDataByPlaces = [];
         // first check if filters where selected
