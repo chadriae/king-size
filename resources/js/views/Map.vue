@@ -1,3 +1,5 @@
+// Google map package from https://vue-map.netlify.app/
+
 <template>
   <div class="map">
       Map page
