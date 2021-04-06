@@ -73,7 +73,7 @@ export default {
   margin: 1vh 2vw 0 0;
   padding-right: 0.5vw;
   padding-left: 0.5vw;
-  border-right: 0.5vw solid white;
+  /* border-right: 0.5vw solid white; */
   transition: 0.6s ease;
   object-fit: fill;
 
@@ -90,6 +90,15 @@ width: 8vh;
   color: #fff;
   font-weight: bold;
   font-size: 9vh;
+  text-decoration: none;
+  background: linear-gradient(to right, #ccc 50%, #fff 50%, #fff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.5s ease-out;
+}
+.brandName:hover {
+  background-position: -100%;
 }
 #navLinks {
   display: flex;
@@ -103,11 +112,13 @@ width: 8vh;
 }
 
 .navLink:hover {
-  border-bottom: 0.3vw solid #fff;
+  /* border-bottom: 0.3vw solid #fff; */
   border-radius: 1%;
-  font-size: 13pt;
+  font-size: 14pt;
   transition: 0.3s ease;
+  color: #fff;
 }
+
 .navLink {
   display: flex;
   align-items: center;
@@ -119,9 +130,10 @@ width: 8vh;
   list-style-type: none;
   /* border: 1px solid yellow; */
   border-bottom: 0.5vh solid transparent;
+  transition: 0.4s ease;
 }
 .routerLi {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
   text-transform: uppercase;
   border-bottom: 3px solid transparent;
