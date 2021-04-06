@@ -133,7 +133,7 @@ width: 8vh;
   transition: 0.4s ease;
 }
 .routerLi {
-  color: #ccc;
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   border-bottom: 3px solid transparent;
