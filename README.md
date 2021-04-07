@@ -37,6 +37,8 @@ A list of features we wanted to include:
 -   MAMP and XAMMP for local server
 -   GitHub
 -   Google Maps API
+-   Heroku for live deployment
+-   JawsDB for the live DB
 
 ### Languages
 
@@ -49,4 +51,6 @@ A list of features we wanted to include:
 
 ## Live website :pushpin:
 
-> ... (Hopefully soon!)
+> The project is live! Deployed on Heroku, with a JawsDB live database.
+> https://chained-becode.herokuapp.com/
+> Check it out! Go to dashboard and make an account to see more features.
