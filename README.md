@@ -52,5 +52,5 @@ A list of features we wanted to include:
 ## Live website :pushpin:
 
 > The project is live! Deployed on Heroku, with a JawsDB live database.
-> https://chained-becode.herokuapp.com/
 > Check it out! Go to dashboard and make an account to see more features.
+> https://chained-becode.herokuapp.com/
