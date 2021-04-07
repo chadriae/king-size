@@ -1,7 +1,3 @@
-<?php
-    $google_key = config('services.google.key');
-?>
-
 <x-app-layout>
     <script>
     let autocomplete;
@@ -169,7 +165,7 @@
                     </div>
 
                     <script
-                    src="https://maps.googleapis.com/maps/api/js?key=<?= $google_key ?>&callback=initAutocomplete&libraries=places&v=weekly"
+                    src="https://maps.googleapis.com/maps/api/js?key={{ env('MIX_GOOGLEKEY') }}&callback=initAutocomplete&libraries=places&v=weekly"
                     async
                     >
                     </script>
