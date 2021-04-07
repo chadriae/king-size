@@ -3,11 +3,11 @@
         <section class="font-sans leading-normal flex bg-gray-100" >
             <!-- card container -->
             <div :repairer="repairer" class="overflow-hidden p-4 sm:flex w-full" id="card">
-                <div v-if="repairer.profile_pic.image_name != null" class="rounded-b-xl md:flex md:items-center" id="image" >
+                <div v-if="repairer.profile_pic != null" class="rounded-b-xl md:flex md:items-center" id="image" >
                     <img class="w-48 h-48 rounded-full md:mr-4 ml-4" :src="'/uploads/' + repairer.profile_pic.image_name">
                 </div>
                 <div v-else class="rounded-b-xl md:flex md:items-center" id="image" >
-                    <img class="rounded-full md:mr-4 ml-4" src="/img/robot.png">
+                    <img class="w-48 h-48 rounded-full md:mr-4 ml-4" src="/img/robot.png">
                 </div>
                 <!-- card-content -->
                 <div class="px-6 py-4">
