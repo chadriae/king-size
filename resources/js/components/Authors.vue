@@ -23,7 +23,7 @@
               <img src="/img/linkedinIconWhite.png" alt="linkedinIcon" />
               <a href="https://github.com/Vicible2">Linkedin Profile</a>
             </div>
-            <button class="contact">Contact me</button>
+            <button class="contact"> <a href="mailto:manten.d@hotmail.com"> Contact me</a> </button>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
               <img src="/img/linkedinIconWhite.png" alt="linkedinIcon" />
               <a href="https://github.com/Vicible2">Linkedin Profile</a>
             </div>
-            <button class="contact">Contact me</button>
+            <button class="contact"><a href="mailto:manten.d@hotmail.com"> Contact me</a></button>
           </div>
         </div>
       </div>
