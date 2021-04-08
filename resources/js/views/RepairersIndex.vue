@@ -52,7 +52,7 @@ export default {
     computed: {
         selectedCategories: function() {
             let categories = [];
-            let checkedCategories = this.categories.filter(obj => obj.checked);
+            let checkedCategories = this.categories.filter(object => object.checked);
             checkedCategories.forEach(element => {
                 categories.push(element.categorie);
             });
@@ -60,7 +60,7 @@ export default {
             },
         selectedSpecialties: function() {
             let specialties = [];
-            let checkedSpecialties = this.specialties.filter(obj => obj.checked);
+            let checkedSpecialties = this.specialties.filter(object => object.checked);
             checkedSpecialties.forEach(element => {
                 specialties.push(element.specialtie);
             });
@@ -68,7 +68,7 @@ export default {
             },
         selectedPlaces: function() {
             let places = [];
-            let checkedPlaces = this.places.filter(obj => obj.checked);
+            let checkedPlaces = this.places.filter(object => object.checked);
             checkedPlaces.forEach(element => {
                 places.push(element.place);
             });
@@ -97,7 +97,7 @@ export default {
             let data = response.data
 
             this.repairers = response.data
-            this.places = data.filter(vv => vv.address !== null).map(repairer => ({
+            this.places = data.filter(empty => empty.address !== null).map(repairer => ({
                 place: repairer.address.locality,
             }))
             console.log(this.places)
@@ -130,7 +130,7 @@ export default {
         let filteredDataByCategories = [];
         // first check if filters where selected
         if (this.selectedCategories.length > 0) {
-            filteredDataByCategories = this.filteredData.filter(test => test.specialties !== null).filter(obj => this.selectedCategories.every(val => obj.specialties['categories'].indexOf(val) >= 0));
+            filteredDataByCategories = this.filteredData.filter(empty => empty.specialties !== null).filter(object => this.selectedCategories.every(value => object.specialties['categories'].indexOf(value) >= 0));
             this.filteredData = filteredDataByCategories;
         }
     },
@@ -139,7 +139,7 @@ export default {
         let filteredDataBySpecialties = [];
         // first check if filters where selected
         if (this.selectedSpecialties.length > 0) {
-            filteredDataBySpecialties = this.filteredData.filter(test => test.specialties !== null).filter(obj => this.selectedSpecialties.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
+            filteredDataBySpecialties = this.filteredData.filter(empty => empty.specialties !== null).filter(object => this.selectedSpecialties.every(value => object.specialties['specialties'].indexOf(value) >= 0));
             this.filteredData = filteredDataBySpecialties;
         }
     },
@@ -148,7 +148,7 @@ export default {
         let filteredDataByPlaces = [];
         // first check if filters where selected
         if (this.selectedPlaces.length > 0) {
-            filteredDataByPlaces = this.filteredData.filter(test => test.address !== null).filter(obj => this.selectedPlaces.every(val => obj.address['locality'].indexOf(val) >= 0));
+            filteredDataByPlaces = this.filteredData.filter(empty => empty.address !== null).filter(object => this.selectedPlaces.every(value => object.address['locality'].indexOf(value) >= 0));
             this.filteredData = filteredDataByPlaces;
         }
     }

@@ -21,7 +21,7 @@
             :opened="true"  
           >
             <strong>{{ marker.name }}</strong>
-            <p id="specialties">
+            <p v-if="marker.specialties !== null " id="specialties">
               <strong>Specialties: </strong>
               <ul v-for="specialtie in marker.specialties">
                 <li>{{ specialtie }}</li>
@@ -39,7 +39,6 @@ export default {
   data(){
     return {
       center: { lat: 51.054745001695125, lng: 3.72176616987 },
-      // key: process.env.MIX_GOOGLEKEY,
       markers: []
     }
   },
@@ -51,7 +50,7 @@ export default {
             let data = response.data
 
             this.markers = response.data
-            this.markers = data.map(repairer => ({
+            this.markers = data.filter(empty => empty.specialties !== null).map(repairer => ({
                 name: repairer.firstname + " " + repairer.lastname,
                 specialties: repairer.specialties.specialties,
                 position: { 
@@ -59,8 +58,6 @@ export default {
                   lng: repairer.address.longitude
                 }
             }))
-            console.log(this.markers)
-            // return this.markers
         } 
         catch (error) {
           console.log(error)
