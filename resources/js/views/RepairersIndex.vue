@@ -40,7 +40,6 @@
 </template>
 
 <script>
-// import Filter from '../components/Filter.vue';
 import RepairerCard from '../components/RepairerCard.vue';
 import specialties from '../data/specialties.js';
 import categories from '../data/categories.js';
@@ -98,9 +97,10 @@ export default {
             let data = response.data
 
             this.repairers = response.data
-            this.places = data.map(repairer => ({
+            this.places = data.filter(vv => vv.address !== null).map(repairer => ({
                 place: repairer.address.locality,
             }))
+            console.log(this.places)
         } 
         catch (err) {
         if (err.response) {
@@ -130,7 +130,7 @@ export default {
         let filteredDataByCategories = [];
         // first check if filters where selected
         if (this.selectedCategories.length > 0) {
-            filteredDataByCategories = this.filteredData.filter(obj => this.selectedCategories.every(val => obj.specialties['categories'].indexOf(val) >= 0));
+            filteredDataByCategories = this.filteredData.filter(test => test.specialties !== null).filter(obj => this.selectedCategories.every(val => obj.specialties['categories'].indexOf(val) >= 0));
             this.filteredData = filteredDataByCategories;
         }
     },
@@ -139,19 +139,16 @@ export default {
         let filteredDataBySpecialties = [];
         // first check if filters where selected
         if (this.selectedSpecialties.length > 0) {
-            filteredDataBySpecialties = this.filteredData.filter(obj => this.selectedSpecialties.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
+            filteredDataBySpecialties = this.filteredData.filter(test => test.specialties !== null).filter(obj => this.selectedSpecialties.every(val => obj.specialties['specialties'].indexOf(val) >= 0));
             this.filteredData = filteredDataBySpecialties;
         }
     },
     getfilteredDataByPlaces(){
-        console.log(this.places)
-        console.log(this.repairers)
-
         this.filteredData = this.repairers;
         let filteredDataByPlaces = [];
         // first check if filters where selected
         if (this.selectedPlaces.length > 0) {
-            filteredDataByPlaces = this.filteredData.filter(obj => this.selectedPlaces.every(val => obj.address['locality'].indexOf(val) >= 0));
+            filteredDataByPlaces = this.filteredData.filter(test => test.address !== null).filter(obj => this.selectedPlaces.every(val => obj.address['locality'].indexOf(val) >= 0));
             this.filteredData = filteredDataByPlaces;
         }
     }

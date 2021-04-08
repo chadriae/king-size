@@ -36,26 +36,26 @@ export default {
 </script>
 
 <style>
-/* @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url(../../../public/fonts/Montserrat-Extrabold.ttf) format("truetype");
+    url(../fonts/Montserrat-Extrabold.ttf) format("truetype");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url(../../../public/fonts/Montserrat-Regular.ttf) format("truetype");
+    url(../fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "MontAlternate";
   src: local("MontAlternate"),
-    url(../../../public/fonts/MontserratAlternates-Regular.ttf)
+    url(../fonts/MontserratAlternates-Regular.ttf)
       format("truetype");
-} */
+}
 #root {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   margin: 0;
