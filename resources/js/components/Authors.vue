@@ -14,16 +14,21 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <div class="github">
-              <img src="/img/githubIconWhite.png" alt="githubIcon" />
-              <a href="https://github.com/chadriae">Github Profile</a>
-            </div>
-
-            <div class="linkedin">
-              <img src="/img/linkedinIconWhite.png" alt="linkedinIcon" />
-              <a href="https://github.com/Vicible2">Linkedin Profile</a>
-            </div>
-            <button class="contact"> <a href="mailto:manten.d@hotmail.com"> Contact me</a> </button>
+            <a href="https://github.com/chadriae">
+              <div class="github">
+                <img src="/img/githubIcon.png" alt="githubIcon" />
+                <p>Github Profile</p>
+              </div></a
+            >
+            <a href="https://github.com/Vicible2">
+              <div class="linkedin">
+                <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
+                <p>Linkedin Profile</p>
+              </div>
+            </a>
+            <button class="contact">
+              <a href="mailto:manten.d@hotmail.com"> Contact me</a>
+            </button>
           </div>
         </div>
       </div>
@@ -40,16 +45,21 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <div class="github">
-              <img src="/img/githubIconWhite.png" alt="githubIcon" />
-              <a href="https://github.com/Vicible2">Github Profile</a>
-            </div>
-
-            <div class="linkedin">
-              <img src="/img/linkedinIconWhite.png" alt="linkedinIcon" />
-              <a href="https://github.com/Vicible2">Linkedin Profile</a>
-            </div>
-            <button class="contact"><a href="mailto:manten.d@hotmail.com"> Contact me</a></button>
+            <a href="https://github.com/Vicible2">
+              <div class="github">
+                <img src="/img/githubIcon.png" alt="githubIcon" />
+                <p>Github Profile</p>
+              </div>
+            </a>
+            <a href="https://github.com/Vicible2">
+              <div class="linkedin">
+                <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
+                <p>Linkedin Profile</p>
+              </div>
+            </a>
+            <button class="contact">
+              <a href="mailto:manten.d@hotmail.com"> Contact me</a>
+            </button>
           </div>
         </div>
       </div>
@@ -79,7 +89,7 @@ export default {
   flex-direction: row;
   margin: 1rem;
   padding: 1rem;
-  color: #fff;
+  color: #17161b;
   border-radius: 1vw 0 1vw 1vw;
 }
 .image {
@@ -103,8 +113,11 @@ export default {
   font-size: 14pt;
   font-weight: 700;
 }
+.bio p {
+  color: #3c3b41;
+}
 .socials {
-  background-color: blue;
+  /* background-color: blue; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -115,12 +128,13 @@ export default {
   flex-direction: row;
   margin: 2rem;
   align-items: center;
+  transition: 0.2s ease-out;
 }
 .socials img {
   width: 100%;
   height: auto;
   max-width: 2vw;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
 /* .github {
   display: flex;
@@ -131,6 +145,7 @@ export default {
   width: 2vw;
 } */
 .contact {
+  color: #fff;
   border: 0;
   font-size: 2.5vh;
   font-weight: bold;
@@ -144,6 +159,10 @@ export default {
 .contact:hover {
   font-size: 3vh;
   transition: 0.3s ease;
+}
+.socials div:hover {
+  color: #fff;
+font-weight: 900;  transition: 0.2s ease;
 }
 
 @media only screen and (max-width: 930px) {
@@ -169,36 +188,32 @@ export default {
     flex-direction: column;
   }
   .socials {
-    justify-content: center;    
+    justify-content: center;
     width: 100%;
   }
   .socials p {
     font-size: 10px;
   }
   .contact {
-      font-size: 2vh;
-      margin: auto 1rem;
-
+    font-size: 2vh;
+    margin: auto 1rem;
   }
 }
 @media only screen and (max-width: 600px) {
-
   .socials {
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
     align-items: center;
   }
   .socials div {
-    margin: .5rem;
+    margin: 0.5rem;
   }
   .socials img {
-    margin-right: .4rem;
+    margin-right: 0.4rem;
   }
   .contact {
     margin: auto;
-          font-size: 2vh;
-
-
+    font-size: 2vh;
   }
 }
 </style>
