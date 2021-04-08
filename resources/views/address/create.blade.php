@@ -75,7 +75,40 @@
 
         address2Field.focus();
     }
-    </script>  
+    </script>
+    <style>
+    #google-map {
+        /* display: flex; */
+        flex-wrap: wrap;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 4rem 0;
+    }
+    .google-map-input {
+        width: 100%;
+        height: 1.2rem;
+        /* margin-top: 0; */
+        padding: 0.5em;
+        border: 0;
+        border-bottom: 2px solid gray;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+    }
+    input:focus {
+        border-bottom: 4px solid black;
+    }
+    .title {
+        font-weight: 500;
+    }
+    .form-label {
+        width: 100%;
+        padding: 0.5em;
+    }
+    .full-field {
+        flex: 400px;
+        margin: 15px 0;
+    }
+    </style>
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
