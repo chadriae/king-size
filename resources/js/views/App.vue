@@ -37,7 +37,7 @@ export default {
 
 <style>
 @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
-@font-face {
+/* @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
     url(../fonts/Montserrat-Extrabold.ttf) format("truetype");
@@ -55,7 +55,7 @@ export default {
   src: local("MontAlternate"),
     url(../fonts/MontserratAlternates-Regular.ttf)
       format("truetype");
-}
+} */
 #root {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   margin: 0;
