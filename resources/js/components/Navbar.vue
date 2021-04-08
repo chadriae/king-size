@@ -7,7 +7,7 @@
         </router-link>
       </div>
 
-      <h1 class="brandName animate__animated animate__flipInX">chained</h1>
+      <h1 class="brandName animate__animated animate__flipInX"><router-link to="/">chained</router-link></h1>
     </div>
     <div id="navLinks">
       <div class="navLink">

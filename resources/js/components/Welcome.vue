@@ -65,7 +65,6 @@ h4 {
   border: 0;
   font-size: 2.5vh;
   font-weight: bold;
-  background-color: transparent;
   text-transform: uppercase;
   background-color: #c92222;
   margin: 4vh 0.5vw 4vh 0;
