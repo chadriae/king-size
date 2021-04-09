@@ -26,7 +26,9 @@ A list of features we wanted to include:
 
 ## What parts can still be added :clipboard:
 
-...
+-   Marker info windows to be able to open and close by clicking on the marker
+-   Styling for the dashboard seperately
+-   More interactivity on the website and with the repairers
 
 ## Tools used :hammer_and_wrench:
 
@@ -53,4 +55,7 @@ A list of features we wanted to include:
 
 > The project is live! Deployed on Heroku, with a JawsDB live database.
 > Check it out! Go to dashboard and make an account to see more features.
+>
 > https://chained-becode.herokuapp.com/
+
+![](https://media.giphy.com/media/YlN7IEa63gu5Vcahke/giphy.gif)
