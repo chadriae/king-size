@@ -14,13 +14,13 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <a href="https://github.com/chadriae">
+            <a href="https://github.com/chadriae" target="_blank" alt="Chadriae Github">
               <div class="github">
                 <img src="/img/githubIcon.png" alt="githubIcon" />
                 <p>Github Profile</p>
               </div></a
             >
-            <a href="https://github.com/Vicible2">
+            <a href="https://www.linkedin.com/in/christophe-adriaensens/" target="_blank" alt="Christophe Adriaensens">
               <div class="linkedin">
                 <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
                 <p>Linkedin Profile</p>
@@ -45,13 +45,13 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <a href="https://github.com/Vicible2">
+            <a href="https://github.com/Vicible2" target="_blank" alt="Vicible2 Github">
               <div class="github">
                 <img src="/img/githubIcon.png" alt="githubIcon" />
                 <p>Github Profile</p>
               </div>
             </a>
-            <a href="https://github.com/Vicible2">
+            <a href="https://www.linkedin.com/in/devillemanten/" target="_blank" alt="Manten Devillé">
               <div class="linkedin">
                 <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
                 <p>Linkedin Profile</p>

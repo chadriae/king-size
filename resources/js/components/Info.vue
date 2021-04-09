@@ -1,8 +1,9 @@
 <template>
   <div class="infoContainer">
     <div class="infoTitle">
-      <h3>Icing gingerbread dessert candy cupcake apple pie</h3>
-      <p>Lemon drops dragée brownie marzipan sugar plum lollipop marshmallow. Icing bonbon brownie <br> liquorice dragée cheesecake donut brownie liquorice </p>
+      <h3>So you're stranded again.. </h3>
+      <p>Theres nothing as cumbersome as wanting to go for a nice ride, a trip to the store (or anything else really) <br>
+      and your bike breaking down. Check out why Chained is what you need and why so many love it!</p>
     </div>
     <div class="infoSections">
       <div class="infoSection">
@@ -11,11 +12,11 @@
           alt="gearIcon"
           class="sectionIcon"
         />
-        <h4>Info1title</h4>
+        <h4>Stuck in the weekend</h4>
         <p>
-          Tiramisu wafer marshmallow soufflé pastry lollipop halvah cupcake oat
-          cake. Marshmallow halvah icing. Biscuit gummi bears gummies candy
-          sesame snaps. Cake powder bear claw cupcake jujubes chupa chups.
+          ...or on any holiday? Every bike repairer or bike shop is closed? <br>
+          No worries, Chained has got an extensive userbase of repairers in every possible technical specialty.
+          No need to worry about missing out on that nice weather when your bike breaks down. Theres always a Chained-spokesman (get it) near you.
         </p>
       </div>
       <div class="infoSection">
@@ -24,12 +25,12 @@
           alt="gearIcon"
           class="sectionIcon"
         />
-        <h4>info2title</h4>
+        <h4>Any Bike</h4>
         <p>
-          Soufflé croissant sweet icing donut cheesecake. Chocolate cake tootsie
-          roll soufflé macaroon carrot cake biscuit danish donut. Chocolate cake
-          croissant jujubes marshmallow dragée. Donut tiramisu candy tart cake
-          chocolate cake muffin dragée.
+          You can filter every registered repairer on Chained based on their specialty, your kind of bike, and now even location!
+          Wanna take a deep dive in the mud with your mountainbike? No problem. <br>
+          Need to take a ride to the store? No biggy! <br>
+          
         </p>
       </div>
       <div class="infoSection">
@@ -38,11 +39,9 @@
           alt="gearIcon"
           class="sectionIcon"
         />
-        <h4>info3title</h4>
-        <p>
-          Icing toffee lollipop wafer pie. Chocolate cake powder biscuit. Oat
-          cake lollipop marzipan dessert chupa chups cookie cotton candy
-          chocolate bar croissant.
+        <h4>Repairers with passion</h4>
+        <p>Chained focusses on working with repairers who are in love with bikes and riding. Are you someone who loves riding and tinkering on bikes, but never took it further?
+          You can register now and earn some on the side.
         </p>
       </div>
     </div>
