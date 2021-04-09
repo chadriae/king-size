@@ -166,9 +166,9 @@ export default {
     display:none;
   }
   @media only screen and (max-width: 600px) {
-    /* .smallNavHideLinks {
+    .smallNavHideLinks {
       display: none;
-    } */
+    }
   }
 }
 </style>

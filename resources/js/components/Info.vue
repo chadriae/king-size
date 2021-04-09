@@ -111,4 +111,20 @@ export default {
   height: 7vh;
   width: 7vh;
 margin: 2vh 0 1vh;}
+@media only screen and (max-width: 930px) {
+    .infoTitle h3 {
+      font-size: 18px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .infoSections {
+      flex-direction: column;
+      align-items: center;
+    }
+    .infoSection {
+      width: 70vw;
+      align-items: center;
+    }
+  }
 </style>

@@ -37,10 +37,11 @@ h4 {
 }
 .welcomeTextContainer {
   /* background-color: rgba(200, 0, 0, 0.3); */
-  border-right: 0.5vw solid white;
+  border-right: 0.5vh solid white;
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 2.5vw;
+  transition: 0.5s ease-out;
 }
 
 .welcomeText {
@@ -70,10 +71,33 @@ h4 {
   margin: 4vh 0.5vw 4vh 0;
   padding: 1.7vh 1.5vw;
   border-radius: 2vw 0 2vw 2vw;
-  transition: 0.3s ease-out ;
+  transition: 0.3s ease-out;
 }
 .moreInfo:hover {
   font-size: 3vh;
   transition: 0.3s ease;
+}
+@media only screen and (max-width: 930px) {
+  
+  .welcomeTitle {
+    font-size: 45px;
+  }
+  
+  
+  .welcomeSubTitle {
+  }
+}
+@media only screen and (max-width: 600px) {
+  .welcomeTextContainer {
+    padding-bottom: 1.5vh;
+    border-right: 0;
+    border-bottom: 0.5vh solid white;
+    transition: 0.5s ease;}
+  .welcomeContainer {
+    align-items: center;
+  }
+  .welcomeText {
+    text-align: center;
+  }
 }
 </style>
