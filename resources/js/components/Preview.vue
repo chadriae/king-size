@@ -44,6 +44,7 @@ export default {
   background-image: url("../../../public/img/backgroundslide.png");
   height: 60vh;
   background-size: cover;
+  justify-content: center;
 }
 .previewEndContainer {
   background: linear-gradient(180deg, #ca2222 50%, #fff 50%);
@@ -63,11 +64,12 @@ export default {
   transition: 0.3s ease-out;
 }
 .previewText {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  padding: 2vw;
 }
 .previewText > h3 {
   font-size: 4.5vh;
@@ -81,7 +83,7 @@ export default {
   justify-content: flex-start;
 }
 .preview2 {
-  justify-content: flex-end;
+  justify-content: center;
   text-align: right;
 }
 .preview2 > img {
@@ -101,6 +103,9 @@ export default {
   }
   .preview2 img {
     margin: 0 2vw;
+  }
+  .previewText {
+    padding: 2vw;
   }
 }
 @media only screen and (max-width: 600px) {

@@ -8,7 +8,7 @@
         Get your bike fixed in the<br />neighbourhood
       </h4>
     </div>
-    <button class="moreInfo welcomeText"><p>find out more!</p></button>
+    <button class="moreInfo welcomeText" type="button"><p>find out more!</p></button>
   </div>
 </template>
 
