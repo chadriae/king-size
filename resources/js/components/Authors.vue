@@ -1,8 +1,8 @@
 <template>
   <div class="aboutContainer">
     <div class="madeBy">
-      <h3>Chained is a project made by 2 junior developers &amp; bike enthousiasts looking to solve an in-real-life problem. </h3>
       <h2>Our profiles:</h2>
+      <h3>Chained is a project made by 2 junior developers &amp; bike enthousiasts. </h3>
     </div>
     <div class="authorContainer">
       <div class="authorCard">
@@ -15,7 +15,14 @@
         <div class="bioContainer">
           <div class="bio">
             <h3>Christophe Adriaensens</h3>
-            <p>test bio</p>
+            <span class="mr-2 mb-2 p-1 bg-yellow-200 rounded-lg alias">Back-end Guru</span>
+            <p>Started coding not so long ago. Now a full stack developer with strong interest in everything web dev.</p>
+            <div class="specialties">
+              <span class="bg-green-200 p-1 rounded-lg">#laravel</span>
+              <span class="bg-green-200 p-1 rounded-lg">#vue</span>
+              <span class="bg-green-200 p-1 rounded-lg">#tailwind</span>
+
+            </div>
           </div>
           <div class="socials">
             <a
@@ -54,7 +61,16 @@
         <div class="bioContainer">
           <div class="bio">
             <h3>Manten Devillé</h3>
-            <p>test bio</p>
+            <span class="mr-2 mb-2 p-1 bg-yellow-200 rounded-lg alias">UI &amp; SFX Enthousiast</span>
+            <p>Got into coding through Graphic Design and joined a Full Stack Webdev course. Now looking to increase my skills and knowledge in everything front-end fancy:
+              3D, Animations and effects.
+            </p>
+            <div class="specialties">
+              <span class="bg-green-200 p-1 rounded-lg">#vue</span>
+              <span class="bg-green-200 p-1 rounded-lg">#(s)css</span>
+              <span class="bg-green-200 p-1 rounded-lg">#threejs</span>
+
+            </div>
           </div>
           <div class="socials">
             <a
@@ -105,15 +121,15 @@ export default {
   padding: 0.5rem;
 }
 .madeBy h3 {
-  font-size: 14.5pt;
-  font-weight: 700;
+  font-size: 12pt;
+  font-weight: 500;
 }
 .madeBy h2 {
+  text-transform: lowercase;
   margin-top: 4vh;
   font-size: 35pt;
   font-weight: 700;
-  color: #e5e7eb;
-    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.726); 
+  color: #17161b;
 
 }
 .authorContainer {
@@ -137,6 +153,7 @@ export default {
 .image {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: auto;
 }
 .image img {
@@ -155,8 +172,33 @@ export default {
   font-size: 14pt;
   font-weight: 700;
 }
+.bio {
+  padding: 20px 100px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;}
 .bio p {
   color: #3c3b41;
+}
+
+.bio h3 {
+  font-size: 20pt;
+  margin-bottom: 20px;
+}
+.alias {
+  font-size: 16px;
+  margin: 1rem 2rem 1rem 0;
+  width: auto;
+}
+
+.specialties {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.specialties span {
+
+  margin: .5rem 1rem .5rem 0;
 }
 .socials {
   /* background-color: blue; */

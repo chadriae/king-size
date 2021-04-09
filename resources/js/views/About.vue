@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    This is the about page.
     <Authors />
   </div>
 </template>
