@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/ico" href="../../../public/img/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="{{ URL::asset('favicon.ico')}}"/>
 
         <title>CHAINED</title>
 
