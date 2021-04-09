@@ -215,5 +215,8 @@ font-weight: 900;  transition: 0.2s ease;
     margin: auto;
     font-size: 2vh;
   }
+  #nav {
+    height: 14vh;
+  }
 }
 </style>

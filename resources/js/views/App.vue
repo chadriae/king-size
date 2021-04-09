@@ -72,4 +72,12 @@ body {
 #nav {
   margin-top: -14vh;
 }
+@media only screen and (max-width: 930px) {
+  body {
+    padding-top: 10vh;
+  }
+  #nav {
+    margin-top: -10vh;
+  }
+}
 </style>

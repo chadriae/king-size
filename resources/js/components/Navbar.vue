@@ -1,34 +1,31 @@
 <template>
   <div id="nav">
     <div class="brand">
-      <div @click="toggleName" class="brandLogo">
+      <div @click="toggleName" class="brandLogo smallNavHide">
         <router-link class="routerLi" to="/">
-          <img src="../../../public/img/chainswhite.png" alt="" />
+          <img src="../../../public/img/chainswhite.png" alt="chainsLogo" />
         </router-link>
       </div>
 
-      <h1 class="brandName animate__animated animate__flipInX"><router-link to="/">chained</router-link></h1>
+      <h1 class="brandName animate__animated animate__flipInX">
+        <router-link to="/">chained</router-link>
+      </h1>
     </div>
-    <div id="navLinks">
+    <div id="navLinks" class="smallNavHideLinks">
       <div class="navLink">
-        <router-link class="routerLi" to="/"> Home </router-link>
-      </div>
-      <div
-        @mouseover="hovered = true"
-        @mouseleave="hover = false"
-        :class="{ white: hovered }"
-        class="navLink"
-      >
-        <router-link class="routerLi" to="/about">About </router-link>
+        <router-link class="routerLi smallNavHideLinks" to="/"> Home </router-link>
       </div>
       <div class="navLink">
-        <router-link class="routerLi" to="/repairers">Repairers </router-link>
+        <router-link class="routerLi smallNavHideLinks" to="/about">About </router-link>
       </div>
       <div class="navLink">
-        <router-link class="routerLi" to="/map">Map </router-link>
+        <router-link class="routerLi smallNavHideLinks" to="/repairers">Repairers </router-link>
       </div>
       <div class="navLink">
-        <span class="routerLi"><a href="/dashboard">Dashboard </a></span>
+        <router-link class="routerLi smallNavHideLinks" to="/map">Map </router-link>
+      </div>
+      <div class="navLink">
+        <span class="routerLi smallNavHideLinks"><a href="/dashboard">Dashboard </a></span>
       </div>
     </div>
   </div>
@@ -36,16 +33,7 @@
 
 <script>
 export default {
-  methods: {
-  //   toggleName() {
-  //     this.querySelector(".brandLogo").
-  //   }
-    data() {
-      return {
-        hover: false,
-      };
-    }
-  },
+  
   name: "Navbar",
 };
 </script>
@@ -81,7 +69,7 @@ export default {
   height: 8vh;
   width: 10vh;
   /* border: 1px solid red; */
-  margin: 1vh 2vw 0 0;
+  margin: 0 2vw 0 0;
   padding-right: 0.5vw;
   padding-left: 0.5vw;
   /* border-right: 0.5vw solid white; */
@@ -92,7 +80,9 @@ export default {
 .brandLogo img {
   height: 8vh;
   width: 8vh;
+  transition: 0.2s ease-out;
 }
+
 .brandName {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   color: #fff;
@@ -126,7 +116,9 @@ export default {
   transition: 0.3s ease;
   color: #fff;
 }
-
+.navLink .routerLi:active {
+  font-size: 14pt;
+}
 .navLink {
   display: flex;
   align-items: center;
@@ -137,7 +129,7 @@ export default {
   padding: 0px 2vw;
   list-style-type: none;
   /* border: 1px solid yellow; */
-  border-bottom: 0.5vh solid transparent;
+  /* border-bottom: 0.5vh solid transparent; */
   transition: 0.4s ease;
 }
 .routerLi {
@@ -154,4 +146,29 @@ export default {
 /* .routerLi:hover {
   font-size: 13pt;
 } */
+
+@media only screen and (max-width: 930px) {
+  #nav {
+    height: 10vh;
+  }
+  .navLink {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .brandName {
+    font-size: 6vh;
+  }
+  .brandLogo img {
+    height: 6vh;
+    width: 6vh;
+  }
+  .brand .smallNavHide {
+    display:none;
+  }
+  @media only screen and (max-width: 600px) {
+    /* .smallNavHideLinks {
+      display: none;
+    } */
+  }
+}
 </style>
