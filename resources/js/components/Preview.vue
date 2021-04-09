@@ -42,7 +42,7 @@ export default {
   display: flex;
   /* background: linear-gradient(170deg, #fff 50%, #ca2222 50%); */
   background-image: url("../../../public/img/backgroundslide.png");
-  height: 60vh;
+  /* height: 60vh; */
   background-size: cover;
   justify-content: center;
 }

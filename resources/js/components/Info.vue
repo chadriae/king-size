@@ -56,7 +56,7 @@ export default {
 
 <style scoped>
 .infoContainer {
-  height: 75vh;
+  /* height: 75vh; */
   width: auto;
   display: flex;
   flex-direction: column;

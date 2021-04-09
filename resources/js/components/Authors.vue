@@ -14,20 +14,28 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <a href="https://github.com/chadriae" target="_blank" alt="Chadriae Github">
+            <a
+              href="https://github.com/chadriae"
+              target="_blank"
+              alt="Chadriae Github"
+            >
               <div class="github">
                 <img src="/img/githubIcon.png" alt="githubIcon" />
                 <p>Github Profile</p>
               </div></a
             >
-            <a href="https://www.linkedin.com/in/christophe-adriaensens/" target="_blank" alt="Christophe Adriaensens">
+            <a
+              href="https://www.linkedin.com/in/christophe-adriaensens/"
+              target="_blank"
+              alt="Christophe Adriaensens"
+            >
               <div class="linkedin">
                 <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
                 <p>Linkedin Profile</p>
               </div>
             </a>
             <button class="contact">
-              <a href="mailto:manten.d@hotmail.com"> Contact me</a>
+              <a href="mailto:christophe.adriaensens@gmail.com">Contact me</a>
             </button>
           </div>
         </div>
@@ -45,13 +53,21 @@
             <p>test bio</p>
           </div>
           <div class="socials">
-            <a href="https://github.com/Vicible2" target="_blank" alt="Vicible2 Github">
+            <a
+              href="https://github.com/Vicible2"
+              target="_blank"
+              alt="Vicible2 Github"
+            >
               <div class="github">
                 <img src="/img/githubIcon.png" alt="githubIcon" />
                 <p>Github Profile</p>
               </div>
             </a>
-            <a href="https://www.linkedin.com/in/devillemanten/" target="_blank" alt="Manten Devillé">
+            <a
+              href="https://www.linkedin.com/in/devillemanten/"
+              target="_blank"
+              alt="Manten Devillé"
+            >
               <div class="linkedin">
                 <img src="/img/linkedinIcon.png" alt="linkedinIcon" />
                 <p>Linkedin Profile</p>
@@ -162,7 +178,8 @@ export default {
 }
 .socials div:hover {
   color: #fff;
-font-weight: 900;  transition: 0.2s ease;
+  font-weight: 900;
+  transition: 0.2s ease;
 }
 
 @media only screen and (max-width: 930px) {
@@ -170,8 +187,6 @@ font-weight: 900;  transition: 0.2s ease;
     margin-left: 0;
   }
   .socials img {
-    height: 3vh;
-    width: 3vh;
   }
   .socials div {
     margin: 1rem;
@@ -210,7 +225,6 @@ font-weight: 900;  transition: 0.2s ease;
   }
   .socials img {
     margin: 0 0.4rem 0 0;
-    height: 3vh;
     width: auto;
   }
   .contact {

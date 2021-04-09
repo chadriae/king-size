@@ -3,7 +3,7 @@
     <div class="brand">
       <div @click="toggleName" class="brandLogo smallNavHide">
         <router-link class="routerLi" to="/">
-          <img src="../../../public/img/chainswhite.png" alt="chainsLogo" />
+          <img src="../../../public/img/chainLogo.png" alt="chainLogo" />
         </router-link>
       </div>
 
@@ -53,7 +53,6 @@ export default {
   justify-content: space-between;
   padding: 0 6vw;
   height: 14vh;
-  /* border: 1px solid blue; */
   align-items: center;
   position: fixed;
   transition: 0.4s;
