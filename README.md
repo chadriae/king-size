@@ -57,3 +57,5 @@ A list of features we wanted to include:
 > Check it out! Go to dashboard and make an account to see more features.
 >
 > https://chained-becode.herokuapp.com/
+
+![](https://media.giphy.com/media/YlN7IEa63gu5Vcahke/giphy.gif)
