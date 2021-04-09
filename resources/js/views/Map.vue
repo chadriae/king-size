@@ -16,16 +16,25 @@
             v-for="(marker, index) in markers"
             :position="marker.position"
             :clickable="true"
+            @click="testFunction()"
         >
           <GMapInfoWindow
             :opened="true"  
           >
             <strong>{{ marker.name }}</strong>
             <p v-if="marker.specialties !== null " id="specialties">
+              <strong>Categories: </strong>
+              <ul v-for="categorie in marker.specialties">
+                <li>{{ categorie }}</li>
+              </ul>
               <strong>Specialties: </strong>
               <ul v-for="specialtie in marker.specialties">
                 <li>{{ specialtie }}</li>
               </ul>
+              <button class="py-3 px-6 bg-blue-400 hover:bg-blue-200 text-white font-bold rounded-full mt-1 mb-2">
+                  <a :href="'mailto:' + marker.email">Contact</a>
+              </button>   
+
             </p>
           </GMapInfoWindow>
         </GMapMarker>
@@ -52,6 +61,7 @@ export default {
             this.markers = response.data
             this.markers = data.filter(empty => empty.specialties !== null).map(repairer => ({
                 name: repairer.firstname + " " + repairer.lastname,
+                email: repairer.email,
                 specialties: repairer.specialties.specialties,
                 position: { 
                   lat: repairer.address.latitude,
@@ -62,6 +72,9 @@ export default {
         catch (error) {
           console.log(error)
         }
+    },
+    testFunction() {
+      console.log('test')
     }
   },
   mounted() {
