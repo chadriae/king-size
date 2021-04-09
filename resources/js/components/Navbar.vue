@@ -3,7 +3,7 @@
     <div class="brand">
       <div @click="toggleName" class="brandLogo smallNavHide">
         <router-link class="routerLi" to="/">
-          <img src="../../../public/img/chainLogo.png" alt="chainLogo" />
+          <img src="../../../public/img/chainLogo.png" id="chainLogo" alt="chainLogo" />
         </router-link>
       </div>
 
@@ -81,7 +81,13 @@ export default {
   width: 8vh;
   transition: 0.2s ease-out;
 }
-
+#chainLogo {
+  transition: 3s ease;
+}
+#chainLogo:hover {
+    transform: rotate(720deg);
+    transition: 3s ease-out;
+}
 .brandName {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   color: #fff;
@@ -170,6 +176,9 @@ export default {
     }
     #nav {
       justify-content: center;
+    }
+    .brandName {
+      display: none;
     }
   }
 }

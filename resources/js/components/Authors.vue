@@ -1,5 +1,9 @@
 <template>
-  <div class="hello">
+  <div class="aboutContainer">
+    <div class="madeBy">
+      <h3>Chained is a project made by 2 junior developers &amp; bike enthousiasts looking to solve an in-real-life problem. </h3>
+      <h2>Our profiles:</h2>
+    </div>
     <div class="authorContainer">
       <div class="authorCard">
         <div class="image">
@@ -90,8 +94,30 @@ export default {
 </script>
 
 <style scoped>
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+}
+.madeBy {
+  text-align: center;
+  margin: 2rem;
+  padding: 0.5rem;
+}
+.madeBy h3 {
+  font-size: 14.5pt;
+  font-weight: 700;
+}
+.madeBy h2 {
+  margin-top: 4vh;
+  font-size: 35pt;
+  font-weight: 700;
+  color: #e5e7eb;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.726); 
+
+}
 .authorContainer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -118,7 +144,7 @@ export default {
   width: 25vh;
 }
 .bioContainer {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin-left: 1rem;
   width: 100%;
   display: flex;
