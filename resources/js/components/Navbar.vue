@@ -163,11 +163,14 @@ export default {
     width: 6vh;
   }
   .brand .smallNavHide {
-    display:none;
+    display:none !important;
   }
   @media only screen and (max-width: 600px) {
     .smallNavHideLinks {
-      display: none;
+      display: none !important;
+    }
+    #nav {
+      justify-content: center;
     }
   }
 }

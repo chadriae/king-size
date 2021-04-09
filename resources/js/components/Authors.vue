@@ -209,7 +209,9 @@ font-weight: 900;  transition: 0.2s ease;
     margin: 0.5rem;
   }
   .socials img {
-    margin-right: 0.4rem;
+    margin: 0 0.4rem 0 0;
+    height: 3vh;
+    width: auto;
   }
   .contact {
     margin: auto;
